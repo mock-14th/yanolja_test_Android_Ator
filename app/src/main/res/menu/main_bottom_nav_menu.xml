@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/main_home_bottomNava_home"
+        android:title="홈"
+        android:icon="@drawable/home_img_png"/>
+    <item
+        android:id="@+id/main_home_bottomNava_area"
+        android:title="지역"
+        android:icon="@drawable/area_img"/>
+    <item
+        android:id="@+id/main_home_bottomNava_my_near"
+        android:title="내주변"
+        android:icon="@drawable/my_near_img"/>
+    <item
+        android:id="@+id/main_home_bottomNava_like"
+        android:title="찜"
+        android:icon="@drawable/like_img"/>
+    <item
+        android:id="@+id/main_home_bottomNava_my_yanolja"
+        android:title="MY 야놀자"
+        android:icon="@drawable/my_yanolja_img"/>
+
+
+</menu>

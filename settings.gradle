@@ -1,0 +1,2 @@
+rootProject.name = "Rising-Test-Yanolja"
+include ':app'
