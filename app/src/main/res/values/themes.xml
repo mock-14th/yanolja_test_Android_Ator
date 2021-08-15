@@ -24,4 +24,15 @@
     <style name="navTextActive">
         <item name="android:textSize">11.5sp</item>
     </style>
+
+    <!--tabLayout tab Text Size-->
+    <style name="tab_text">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--tabLayout tab bar color-->
+    <style name="MainHomeTabTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/tabLayoutTab</item>                                <!--인디케이터 배경 -->
+    </style>
 </resources>

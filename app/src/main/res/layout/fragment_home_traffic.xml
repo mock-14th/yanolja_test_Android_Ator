@@ -7,6 +7,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:text="즐길거리"/>
+        android:text="교통/항공"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,6 +20,6 @@ class HomeViewPager2Adapter(fm:Fragment) : FragmentStateAdapter(fm){
             3-> HomeTrafficFragment()
             else-> HomeOverseasTripFragment()
         }
-
     }
+
 }

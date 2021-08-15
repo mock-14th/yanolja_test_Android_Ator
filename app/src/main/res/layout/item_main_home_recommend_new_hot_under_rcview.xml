@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/item_main_home_recommend_new_hot_under_linear"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:layout_marginStart="7dp"
+    android:layout_marginEnd="7dp"
+    android:layout_width="60dp"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/item_main_home_recommend_new_hot_under_img"
+        android:layout_width="45dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:layout_marginBottom="3dp"
+        android:src="@drawable/nolteck_img"/>
+
+    <TextView
+        android:id="@+id/item_main_home_recommend_new_hot_under_tx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="10.5sp"
+        android:textColor="@color/black"
+        android:text="돈버는놀테크"/>
+
+</LinearLayout>

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Rising-Test-Yanolja</string>
+    <string name="main_home_toolBar_tx">어디로 놀러갈까요?</string>
+    <string name="main_home_recommend_firstTitle">NEW &amp; HOT</string>
 </resources>
