@@ -18,3 +18,18 @@
 
 #### *내일 할 일*
 1. Main Activity의 BottomNavigation의 자식 중 HomeFragment를 모두 구현해 보고자 한다.
+
+***
+### 2021-0815-라이징테스트 2일차
+#### *오늘 한 일*
+1. tabLayout의 indicator의 길이를 tab의 글자 길이 만큼 되도록 구현했다.
+2. Horizontal과 Grid RecyclerView를 이용하여 HomeFragment의 RecommendFragment의 UI를 구현하였다.
+
+#### *개발 도중 발생한 이슈*
+1. 화면 구성이 fragment안에 fragment가 담기고 자식 뷰에서 스크롤 또는 스와핑을 진행하면 부모뷰의 fragment가 동작하는 이슈를 발견하였다. 아직 해당 오류는 처리하지 못하였다.
+2. 1번과 비슷한 문제로, 자식 fragment의 viewpager를 스크롤 할 시 부모 fragment가 스와핑 되는 현상이다. 아직 처리하지 못하였다.
+3. 포커싱과 스크롤을 막는 공부가 많이 필요할 듯 싶다.
+
+#### *내일 할 일*
+1. 오늘 발생항 이슈에서 생각보다 너무 많은 시간을 투자해 버렸다. 원래 목표했던 HomeFragment의 RecommendFragment를 구현해보고자 하는 목표를 달성하지 못하였기 때문에 먼저 화면을 다 만들고 포커싱에 대한 이슈를 잡아보려 한다.
+2. 이슈가 빠르게 잡힌다면, 로그인과 회원가입 UI를 구현할 계획이다.
