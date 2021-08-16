@@ -34,6 +34,6 @@ class HomeFragment : BaseFragment<FragmentHomeBinding> (FragmentHomeBinding::bin
         TabLayoutMediator(binding.mainHomeTabLayout,binding.mainHomeViewPager2){ tab, position ->
             tab.text = tabTitleList[position]
         }.attach()
-
     }
+
 }

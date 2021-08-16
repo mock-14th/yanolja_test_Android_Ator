@@ -19,4 +19,7 @@
     <color name="yanoljaPink">#ffff357a</color>
     <color name="tabLayoutTab">#ffca4263</color>
 
+    <!--Main_Home_Recommend.xml-->
+    <color name="look_all_btn_text_color">#2251c5</color>
+
 </resources>

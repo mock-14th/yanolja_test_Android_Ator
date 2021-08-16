@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
@@ -7,7 +8,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:descendantFocusability="afterDescendants">
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/main_home_recommend_tx_new_hot"
@@ -26,9 +28,10 @@
             android:id="@+id/main_home_recommend_rcView_new_hot"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="10dp"
             android:overScrollMode="never"
             android:paddingLeft="10dp"
+            android:clipToPadding="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/main_home_recommend_tx_new_hot" />
@@ -54,18 +57,421 @@
             app:layout_constraintTop_toBottomOf="@+id/line1" />
 
 
-        <androidx.core.widget.NestedScrollView
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/main_home_recommend_viewPager2_ad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            app:layout_constraintTop_toBottomOf="@+id/main_home_recommend_rcView_new_hot_under">
+            app:layout_constraintTop_toBottomOf="@+id/main_home_recommend_rcView_new_hot_under" />
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/main_home_recommend_viewPager2_ad"
-                android:layout_width="match_parent"
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/main_home_recommend_tx_today_special_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_home_recommend_twiceTitle"
+            android:textColor="@color/black"
+            android:textSize="15.5sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/main_home_recommend_viewPager2_ad"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main_home_recommend_rcView_today_special_cost"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingStart="15dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            app:layout_constraintTop_toBottomOf="@+id/main_home_recommend_tx_today_special_cost"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="7.5dp"
+            android:layout_marginTop="20dp"
+            android:background="#EFEFEF"
+            app:layout_constraintTop_toBottomOf="@+id/main_home_recommend_rcView_today_special_cost" />
+
+        <TextView
+            android:id="@+id/main_home_recommend_tx_now_good_area"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_home_recommend_thirdTitle"
+            android:textColor="@color/black"
+            android:textSize="15.5sp"
+            android:textStyle="bold"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/line2"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"/>
+
+
+
+        <LinearLayout
+            android:id="@+id/main_home_recommed_linear_now_good_area"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/main_home_recommend_tx_now_good_area"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/now_good_area_jeju_img"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:autoSizeTextType="uniform"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:textSize="12.5sp"
+                    android:fontFamily="@font/dotumpro2"
+                    android:layout_marginTop="3dp"
+                    android:text="@string/now_good_area_1"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/now_good_area_kangwondo_img"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoSizeTextType="uniform"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:textSize="12.5sp"
+                    android:fontFamily="@font/dotumpro2"
+                    android:text="@string/now_good_area_2"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/now_good_area_busan_img"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoSizeTextType="uniform"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="3dp"
+                    android:textStyle="bold"
+                    android:textSize="12.5sp"
+                    android:fontFamily="@font/dotumpro2"
+                    android:gravity="center"
+                    android:text="@string/now_good_area_3"/>
+            </LinearLayout>
+            <LinearLayout
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_height="wrap_content">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/now_good_area_gungsangbokdo_img"/>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:autoSizeTextType="uniform"
+                    android:textColor="@color/black"
+                    android:layout_marginTop="3dp"
+                    android:textStyle="bold"
+                    android:textSize="12.5sp"
+                    android:fontFamily="@font/dotumpro2"
+                    android:gravity="center"
+                    android:text="@string/now_good_area_4"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/line3"
+            android:layout_width="match_parent"
+            android:layout_height="7.5dp"
+            android:layout_marginTop="20dp"
+            android:background="#EFEFEF"
+            app:layout_constraintTop_toBottomOf="@+id/main_home_recommed_linear_now_good_area" />
+
+        <TextView
+            android:id="@+id/main_home_recommend_tx_weekly_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_home_recommend_4thTitld"
+            android:textColor="@color/black"
+            android:textSize="15.5sp"
+            android:fontFamily="@font/dotumpro3"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/line3"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"/>
+        <TextView
+            android:id="@+id/main_home_recommend_tx_sub_weekly_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_home_recommend_4thSubTitld"
+            android:fontFamily="@font/dotumpro3"
+            android:textColor="#888787"
+            android:textSize="11sp"
+            android:layout_marginTop="3dp"
+            app:layout_constraintTop_toBottomOf="@+id/main_home_recommend_tx_weekly_top"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/main_home_recommend_weekly_btn_look_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weekly_top_look_all_btn"
+            android:fontFamily="@font/dotumpro3"
+            android:textSize="13sp"
+            android:textColor="@color/look_all_btn_text_color"
+            android:layout_marginTop="27dp"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintTop_toBottomOf="@+id/line3"/>
+        
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/main_home_recommend_weekly_tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            app:tabMode="scrollable"
+            app:tabGravity="start"
+
+            app:tabSelectedTextColor="@color/look_all_btn_text_color"
+            app:tabIndicatorColor="@android:color/transparent"
+            app:tabBackground="@drawable/selector_tab"
+            app:tabTextAppearance="@style/chip_tab_text"
+
+
+            app:tabPaddingStart="15dp"
+            app:tabPaddingEnd="15dp"
+            app:tabMinWidth="50dp"
+            app:tabIndicatorHeight="0dp"
+            app:tabRippleColor="@null"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/main_home_recommend_tx_sub_weekly_top">
+        </com.google.android.material.tabs.TabLayout>
+        
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/main_home_recommend_weekly_viewPager2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/main_home_recommend_weekly_tabLayout"/>
+
+
+        <View
+            android:id="@+id/line4"
+            android:layout_width="match_parent"
+            android:layout_height="7.5dp"
+            android:layout_marginTop="20dp"
+            android:background="#EFEFEF"
+            app:layout_constraintTop_toBottomOf="@+id/main_home_recommend_weekly_viewPager2" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/main_home_recommend_tx_today_magazine_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_home_recommend_5thTitld"
+            android:textColor="@color/black"
+            android:textSize="15.5sp"
+            android:fontFamily="@font/dotumpro3"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/line4"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"/>
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/main_home_recommend_btn_today_magzine_look_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/weekly_top_look_all_btn"
+            android:fontFamily="@font/dotumpro3"
+            android:textSize="13sp"
+            android:textColor="@color/look_all_btn_text_color"
+            android:layout_marginTop="27dp"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintTop_toBottomOf="@+id/line4"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/main_home_recommend_rcView_today_magazine"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:paddingStart="15dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            app:layout_constraintTop_toBottomOf="@+id/main_home_recommend_tx_today_magazine_cost"/>
+
+
+        <View
+            android:id="@+id/line5"
+            android:layout_width="match_parent"
+            android:layout_height="7.5dp"
+            android:layout_marginTop="20dp"
+            android:background="#EFEFEF"
+            app:layout_constraintTop_toBottomOf="@+id/main_home_recommend_rcView_today_magazine" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/main_home_recommend_tx_looking_product"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/main_home_recommend_looking_product"
+            android:textColor="@color/black"
+            android:textSize="15.5sp"
+            android:fontFamily="@font/dotumpro3"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/line5"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"/>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/main_home_recommend_looking_product_constraint1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+            app:layout_constraintTop_toBottomOf="@+id/main_home_recommend_tx_looking_product">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/main_home_recommend_looking_product_constraint1_img"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/looking_img1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="5dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/main_home_recommend_looking_product_constraint1_title"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                />
-        </androidx.core.widget.NestedScrollView>
+                android:text="@string/looking_product_1"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/dotumpro3"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/main_home_recommend_looking_product_constraint1_img"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="11dp"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/looking_product_sub_1"
+                android:textSize="12sp"
+                android:layout_marginStart="5dp"
+                app:layout_constraintTop_toBottomOf="@+id/main_home_recommend_looking_product_constraint1_title"
+                app:layout_constraintStart_toEndOf="@+id/main_home_recommend_looking_product_constraint1_img"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:layout_width="30dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/right_img"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="15dp" />
+
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+        <!--viewPager에 현재 몇번째 배너인지 보여주기 위한 불투명 LinearLayout-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gray_ellipse"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/main_home_recommend_viewPager2_ad"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <TextView
+                android:id="@+id/textView_current_banner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="01"
+                android:textColor="#FFFFFF"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:text="/"
+                android:textColor="#FFFFFF"
+                android:textSize="10dp" />
+
+            <TextView
+                android:id="@+id/textView_total_banner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="09"
+                android:textColor="#FFFFFF"
+                android:textSize="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:text= "&#124;"
+                android:textColor="#FFFFFF"
+                android:textSize="10dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="전체보기"
+                android:textColor="#FFFFFF"
+                android:textSize="10dp"
+                android:textStyle="bold" />
+        </LinearLayout>
 
 
         <androidx.constraintlayout.widget.Guideline

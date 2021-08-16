@@ -1,5 +1,28 @@
 <resources>
+    <!--main_home_recommend-->
     <string name="app_name">Rising-Test-Yanolja</string>
     <string name="main_home_toolBar_tx">어디로 놀러갈까요?</string>
     <string name="main_home_recommend_firstTitle">NEW &amp; HOT</string>
+    <string name="main_home_recommend_twiceTitle">오늘의 특가</string>
+    <string name="main_home_recommend_thirdTitle">지금 여행가기 좋은 지역</string>
+    <string name="main_home_recommend_4thTitld">위클리 인기 Top</string>
+    <string name="main_home_recommend_4thSubTitld">지난주 구매 기반 인기 많은 순</string>
+    <string name="main_home_recommend_5thTitld">오늘의 인기 매거진</string>
+    <string name="main_home_recommend_looking_product">찾고 계신 상품이 있나요?</string>
+
+    <string name="now_good_area_1">제주도</string>
+    <string name="now_good_area_2">강원도</string>
+    <string name="now_good_area_3">부산</string>
+    <string name="now_good_area_4">경상북도</string>
+    <string name="weekly_top_look_all_btn">전체보기</string>
+
+    <string name="looking_product_1">국내숙소</string>
+    <string name="looking_product_2">즐길거리</string>
+    <string name="looking_product_3">교통/항공</string>
+    <string name="looking_product_4">해외여행</string>
+    <string name="looking_product_sub_1">호텔 / 프리미엄호텔 / 모텔 / 펜션 / 풀빌라 / 게스트하우스</string>
+    <string name="looking_product_sub_2">워터파크 / 수상레저 / 테마파크 / 모바일교환권 / 맛집 / 아이야놀자</string>
+    <string name="looking_product_sub_3">KTX / 렌터카 / 고속버스 / 국내 항공권 / 해외 항공권</string>
+    <string name="looking_product_sub_4">해외숙소 / 해외 항공권 / 해외 여행자 보험</string>
+
 </resources>

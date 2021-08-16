@@ -31,8 +31,17 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+
     <!--tabLayout tab bar color-->
     <style name="MainHomeTabTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/tabLayoutTab</item>                                <!--인디케이터 배경 -->
     </style>
+
+
+    <!--tabLayout custom to chip tab Text Size-->
+    <style name="chip_tab_text">
+        <item name="android:textSize">11sp</item>
+        <item name="fontFamily">@font/dotumpro3</item>
+    </style>
+
 </resources>

@@ -17,10 +17,10 @@ class HomeRecommendAdViewPager2Adapter(private val adImgList : ArrayList<Int>) :
         holder: HomeRecommendAdViewPager2Adapter.ViewHolder,
         position: Int
     ) {
-        holder.bind(adImgList[position])
+        holder.bind(adImgList[position%adImgList.size])
     }
 
-    override fun getItemCount(): Int = adImgList.size
+    override fun getItemCount(): Int = Int.MAX_VALUE
 
     inner class ViewHolder(var binding : ItemMainHomeRecommendAdViewpagerBinding ) : RecyclerView.ViewHolder(binding.root){
         fun bind(data: Int) {
