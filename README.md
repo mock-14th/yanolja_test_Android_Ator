@@ -56,3 +56,41 @@
 #### *내일 할 일*
 1. 내일은 1차 피드백이 있는 날이다. 따라서, My 야놀자 fragment와 로그인,회원가입 폼을 만들어 로그인,회원가입 API까지 적용해 보려 한다.
 
+
+
+
+
+***
+### 2021-0817-라이징테스트 4일차
+#### *오늘 한 일*
+1. My야놀자 fragment의 UI를 구성했다.
+2. 로그인 UI를 구성했다.
+
+
+
+#### *개발 도중 발생한 이슈와 해결 방법*
+1. My야놀자 fragment의 UI를 구성하던 중 많은 레이아웃들이 겹치다 보니 그림자를 주는 방법이 헷갈렸다. 그래도 차근차근 효과를 줬다가 뺐다가 하면서 많은 공부가 되었다.
+
+2. My야놀자 fragment를 보면 appBarLayout의 elevation의 효과가 최상단일 경우에는 나타나지 않다가, 최상단이 아니면 elevation효과가 나타난다. 이를 nestedScroll의 onScrollChangeListener로 최상단인지 아닌지를 확인해 주었고, 최상단일 경우 elevation의 효과를 주었다. 사실 elevation를 kotlin으로 적용해도 적용이 되지 않기에 bar모양의 view를 만들어 그림자를 줘보았지만, 위에도 그림자 효과가 생겨 원하던 결과가 아니였다. 이것 저것 만져보던 중 appBarLayout의 translationZ를 높게 줄수록 그림자가 깊어진다는 것을 발견해, kotlin에서 appbar의 translationZ를 = 7f 줌으로써 원하던 효과를 구현했다.
+
+3. 로그인 UI를 작성하던 중 EditText의 hint가 클릭 시 위로 올라가는 효과를 주기 위해 textInputLayout을 사용하였는데 클릭 하기 전 hint의 위치가 밑줄과 많이 떨어져 있는 것이 실제 앱과 달라 이 부분을 고치기 위해 많은 시간이 들었다.... 결국 구글링을 통해 찾았고 boxCollapsedPaddingTop과 paddingTop을 textInputLayout에 적용해 줌으로 써 이를 해결 하였다.
+
+4. textInputEditLayout의 속성 중 app:passwordToggleEnabled를 true로 주면 눈 모양이 생기면서 패스워드(\*로 표시됨)을 일반 텍스트 처럼 볼 수 있는 기능이 있는데, 이는 실제 앱과 달랐다. 실제 앱에서는 처음 부터 해당 토글버튼이 나오지 않고 입력을 하나라도 해야지 출력이 되는데 이 부분을 따라하기 위해 임의의 button을 EditText 옆에 겹쳐 두었고 kotlin코드에서 Visible를 컨트롤 해서 버튼의 출력을 제어하였다. 그리고 InputType을 kotlin에서 변경하는 방법 중 binding.loginEdtPwd.inputType = (InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD) 이 코드는 기존 앱과 다른 포맷이 나타나 실제앱과 달랐다. 따라서 binding.loginEdtPwd.transformationMethod = PasswordTransformationMethod.getInstance() 이 코드로 대체하여 해결하였다.
+
+
+#### *1차 피드백*
+1. 퍼블리싱은 좋다고 긍정적인 피드백을 받았다.
+2. 나의 욕심이 앞서 디테일과 많은 화면을 만들려는 것이 옳은 것인지 여쭈어 봤고, API를 엮어 기획서에서 세운 우선순위를 먼저 하라는 피드백을 받았다.
+3. 2차 피드백까지 기획서에서의 7번 '예약' 까지 구현해 보라는 목표를 정해주셨다. 점점 자신감이 생기는것 같다.
+
+
+
+#### *내일 할 일*
+1. 로그인의 UI를 만들었기 때문에, 로그인 API와 앱을 연동해 JWT값을 받아서 SharedPreference로 저장하는 부분을 구현해 보려한다.
+2. 회원가입 폼을 만들어 회원가입 API와 연동하려 한다.
+3. 시간이 된다면, 지역 fragment의 UI를 할 수 있는 만큼 구현해 보려 한다.
+
+
+
+
+
