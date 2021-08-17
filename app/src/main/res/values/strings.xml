@@ -25,4 +25,49 @@
     <string name="looking_product_sub_3">KTX / 렌터카 / 고속버스 / 국내 항공권 / 해외 항공권</string>
     <string name="looking_product_sub_4">해외숙소 / 해외 항공권 / 해외 여행자 보험</string>
 
+    <string name="posting_seller_info">(주)야놀자 \n대포이사 : 이수진 | 사업자 등록번호 : 220-87-42885\n통신판매업신고 : 강남-14211호 | 메일 : help@yanolja.com\n관광사업자 등록번호 : 제2016-31호\n고객센터 : 1644-1346 (오전 9시 - 익일 새벽 3시)\n주소 : 서울 강남구 테헤란로 108길 42\n호스팅서비스 제공자 : 주식회사 야놀자</string>
+    <string name="posting_btn_1">개인정보처리방침</string>
+    <string name="posting_btn_2">청소년보호정책</string>
+    <string name="posting_btn_3">서비스 이용약관</string>
+    <string name="posting_btn_4">위치 정보 이용 약관</string>
+    <string name="posting_btn_5">사업자 정보 확인</string>
+    <string name="posting_terms_1">(주)야놀자는 통신판매중개자로서 통신판매의 당사자가 아니며 상품의 예약, 이용 및 환불 등과\n관련한 의무와 책임은 각 판매자에게 있습니다.</string>
+    <string name="posting_terms_2">(주)야놀자가 소유/운영/관리하는 웹사이트 및 앱 내의 상품/판매자/이벤트 정보, 디자인 및\n화면의 구성, UI를 포함하여 일체의 콘텐츠에 대한 무단 복제, 배포, 방송 또는 전송, 스크래핑\n등의 행위는 저작권법 및 콘텐츠산업 진흥법 등 관련 법령에 의하여 엄격히 금지 됩니다.</string>
+    <string name="posting_btn_6">콘텐츠산업 진흥법에 따른 표시</string>
+
+
+
+
+    <!--main_My야놀자-->
+    <string name="my_yanolja_toolbar_title">MY 야놀자</string>
+    <string name="before_login_1">가입하고, 초특가 혜택 받자!</string>
+    <string name="before_login_2">로그인 및 회원가입 하기 > </string>
+    <string name="my_yanolja_point">포인트</string>
+    <string name="my_yanolja_coin">야놀자 코인</string>
+    <string name="my_yanolja_cupon_box">쿠폰함</string>
+    <string name="my_yanolja_my_postscript">나의 후기</string>
+    <string name="my_yanolja_like">찜</string>
+    <string name="my_yanolja_coin_explane">계정연동 후 사용하세요</string>
+    <string name="my_yanolja_nonmember_1">국내여행 통합예약 (6/9 이후 예약)</string>
+    <string name="my_yanolja_nonmember_2">국내 숙소 (6/9 이전 예약)</string>
+    <string name="my_yanolja_nonmember_3">국내 레저/모바일교환권 (6/9 이전 예약)</string>
+    <string name="my_yanolja_nonmember_4">KTX (6/9 이전 예약)</string>
+    <string name="my_yanolja_nonmember_5">맛집</string>
+    <string name="my_yanolja_nonmember_6">해외 예약 내역</string>
+    <string name="my_yanolja_nonmember_7">해외 여행자 보험</string>
+
+    <string name="my_yanolja_btn_event">이벤트</string>
+    <string name="my_yanolja_btn_exhibition">기획전</string>
+    <string name="my_yanolja_btn_research">리서치 참여</string>
+    <string name="my_yanolja_btn_lottery">당첨자 발표</string>
+    <string name="my_yanolja_btn_believe_use">믿고 쓰는 야놀자!</string>
+
+    <string name="my_yanolja_tx_customer_service_time">365일 오전 9시 ~ 익일 오전 3시 운영</string>
+
+    <string name="my_yanolja_btn_question">자주 묻는 질문 FAQ</string>
+    <string name="my_yanolja_btn_notice">공지사항</string>
+    <string name="my_yanolja_btn_yanolja_info">야놀자 정보</string>
+    <string name="my_yanolja_btn_setting">설정</string>
+
+
 </resources>

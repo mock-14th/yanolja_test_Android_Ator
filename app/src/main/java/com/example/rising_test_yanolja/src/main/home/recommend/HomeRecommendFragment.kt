@@ -34,6 +34,9 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(
     private val intervalTime = 3000.toLong() // 몇초 간격으로 페이지를 넘길것인지 (1500 = 1.5초)
     private var currentPosition = Int.MAX_VALUE / 2
 
+
+    private var isSellerInfo = false
+
     //weekly tabLayout title array
     val tabTitleList = arrayListOf("모바일교환권","펜션","호텔","레저/티켓","모텔","게스트하우스")
 
@@ -155,8 +158,6 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(
             false
         }
 
-//        //autoSCroll할 때 증가하는 index값을 viewPager에 넣어줌
-//        binding.mainHomeRecommendViewPager2Ad.setCurrentItem(currentPosition,false)
 
         //Ad viewPager 현재배너 출력하는 코드
         if(adImgList.size>9) //1의자리 숫자면 앞에 0을 붙여야 하기 때문에 if문으로 확인해 준다.
@@ -225,26 +226,16 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(
         }.attach()
 
         //weekly_top_viewPager2 swipe할 때 부모 뷰페이저 swipe막는 코드
-        binding.mainHomeRecommendWeeklyViewPager2.apply {
-            registerOnPageChangeCallback(object:ViewPager2.OnPageChangeCallback(){
-                override fun onPageSelected(position: Int) {
-                    super.onPageSelected(position)
-                    currentPosition = position
-                    if(position%adImgList.size>8)
-                        binding.textViewCurrentBanner.text = "${(position%adImgList.size)+1}"
-                    else
-                        binding.textViewCurrentBanner.text = "0${(position%adImgList.size)+1}"
+        binding.mainHomeRecommendWeeklyViewPager2.getChildAt(0).setOnTouchListener { v, event ->
+            when(event.action){
+                MotionEvent.ACTION_DOWN->{
+                    parentViewPager2.isUserInputEnabled = false
                 }
-                override fun onPageScrollStateChanged(state: Int) {
-                    super.onPageScrollStateChanged(state)
-                    when(state){
-                        // 뷰페이저에서 손 떼었을때 / 뷰페이저 멈춰있을 때
-                        ViewPager2.SCROLL_STATE_IDLE -> autoScrollStart(intervalTime)
-                        // 뷰페이저 움직이는 중
-                        ViewPager2.SCROLL_STATE_DRAGGING -> autoScrollStop()
-                    }
+                MotionEvent.ACTION_UP->{
+                    parentViewPager2.isUserInputEnabled = true
                 }
-            })
+            }
+            false
         }
 
 
@@ -252,6 +243,45 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(
         binding.mainHomeRecommendRcViewTodayMagazine.layoutManager =
             LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.mainHomeRecommendRcViewTodayMagazine.adapter = HomeRecommendTodayMagazineRcViewAdapter(todayMagazineList)
+
+        //today_magazine rcview 부모 swipe 막는 코드
+        //today_special_cost_rcView 리사이클러뷰가 스크롤 될 때 부모의 viewPager swipe를 막는 코드
+        binding.mainHomeRecommendRcViewTodayMagazine.addOnItemTouchListener(object : RecyclerView.OnItemTouchListener {
+            override fun onInterceptTouchEvent(rv: RecyclerView, e: MotionEvent): Boolean {
+                when(e.action){
+                    MotionEvent.ACTION_DOWN->{
+                        parentViewPager2.isUserInputEnabled = false
+                    }
+                    MotionEvent.ACTION_UP->{
+                        parentViewPager2.isUserInputEnabled = true
+                    }
+                }
+                return false
+            }
+
+            override fun onTouchEvent(rv: RecyclerView, e: MotionEvent) {
+            }
+
+            override fun onRequestDisallowInterceptTouchEvent(disallowIntercept: Boolean) {
+            }
+        })
+
+
+
+
+        //약관 사업자 정보 클릭 시 사업자 정보 출력해주는 코드
+        binding.mainHomeRecommendPostingBtnSellerInfo.setOnClickListener {
+            if(!isSellerInfo){
+                isSellerInfo=true
+                binding.mainHomeRecommendPostingLinearlayoutSellerInfo.visibility=View.VISIBLE
+                binding.mainHomeRecommendPostingBtnImgSellerInfo.setImageResource(R.drawable.up_img)
+            }else{
+                isSellerInfo=false
+                binding.mainHomeRecommendPostingLinearlayoutSellerInfo.visibility=View.GONE
+                binding.mainHomeRecommendPostingBtnImgSellerInfo.setImageResource(R.drawable.down_img)
+            }
+        }
+
 
     }
 

@@ -19,6 +19,10 @@
     <color name="yanoljaPink">#ffff357a</color>
     <color name="tabLayoutTab">#ffca4263</color>
 
+    <color name="redBtnColor">#DA395F</color>
+    <color name="redBtnColorClicked">#A1324D</color>
+
+
     <!--Main_Home_Recommend.xml-->
     <color name="look_all_btn_text_color">#2251c5</color>
 
