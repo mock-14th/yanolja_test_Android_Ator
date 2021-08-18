@@ -3,13 +3,11 @@ package com.example.rising_test_yanolja.src.main.myYanolja
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import androidx.core.content.ContextCompat
+import androidx.viewpager2.widget.ViewPager2
 import com.example.rising_test_yanolja.R
+import com.example.rising_test_yanolja.config.BaseFragment
 import com.example.rising_test_yanolja.databinding.FragmentMyYanoljaBinding
 import com.example.rising_test_yanolja.src.login.LoginActivity
-import com.google.android.material.appbar.AppBarLayout
-import com.softsquared.template.kotlin.config.BaseFragment
 
 class MyYanoljaFragment : BaseFragment<FragmentMyYanoljaBinding>(FragmentMyYanoljaBinding::bind, R.layout.fragment_my_yanolja) {
 
@@ -18,6 +16,7 @@ class MyYanoljaFragment : BaseFragment<FragmentMyYanoljaBinding>(FragmentMyYanol
 
         binding.mainMyYanoljaBtnLoginBefore.setOnClickListener {
             var intent = Intent(context, LoginActivity::class.java)
+            intent.putExtra("currentViewPagerIndex",4)
             startActivity(intent)
         }
 

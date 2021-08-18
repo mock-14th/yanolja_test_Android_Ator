@@ -1,16 +1,14 @@
 package com.example.rising_test_yanolja.src.main
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.rising_test_yanolja.R
+import com.example.rising_test_yanolja.config.BaseActivity
 import com.example.rising_test_yanolja.databinding.ActivityMainBinding
 import com.example.rising_test_yanolja.src.main.area.AreaFragment
 import com.example.rising_test_yanolja.src.main.home.HomeFragment
 import com.example.rising_test_yanolja.src.main.like.LikeFragment
 import com.example.rising_test_yanolja.src.main.myNear.MyNearFragment
 import com.example.rising_test_yanolja.src.main.myYanolja.MyYanoljaFragment
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.softsquared.template.kotlin.config.BaseActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate){
 
@@ -19,13 +17,50 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     private var fmMyNear : MyNearFragment? = null
     private var fmLike : LikeFragment? = null
     private var fmMyYanolja : MyYanoljaFragment? = null
+    private var currentViewPagerIndex = 0
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        fmHome = HomeFragment()
-        supportFragmentManager.beginTransaction().add(R.id.main_frameLayout,fmHome!!).commitAllowingStateLoss()
+        currentViewPagerIndex=intent.getIntExtra("currentViewPagerIndex",0)
+
+        when(currentViewPagerIndex){
+            0->{
+                fmHome = HomeFragment()
+                supportFragmentManager.beginTransaction().add(R.id.main_frameLayout,fmHome!!).commitAllowingStateLoss()
+                binding.mainHomeBottomNav.menu.getItem(0).isChecked=true
+
+            }
+            1->{
+                fmArea = AreaFragment()
+                supportFragmentManager.beginTransaction()
+                    .add(R.id.main_frameLayout, fmArea!!).commitAllowingStateLoss()
+                binding.mainHomeBottomNav.menu.getItem(1).isChecked=true
+
+            }
+            2->{
+                fmMyNear = MyNearFragment()
+                supportFragmentManager.beginTransaction()
+                    .add(R.id.main_frameLayout, fmMyNear!!).commitAllowingStateLoss()
+                binding.mainHomeBottomNav.menu.getItem(2).isChecked=true
+
+            }
+            3->{
+                fmLike = LikeFragment()
+                supportFragmentManager.beginTransaction()
+                    .add(R.id.main_frameLayout, fmLike!!).commitAllowingStateLoss()
+                binding.mainHomeBottomNav.menu.getItem(3).isChecked=true
+            }
+            4->{
+                fmMyYanolja = MyYanoljaFragment()
+                supportFragmentManager.beginTransaction()
+                    .add(R.id.main_frameLayout, fmMyYanolja!!)
+                    .commitAllowingStateLoss()
+                binding.mainHomeBottomNav.menu.getItem(4).isChecked=true
+
+            }
+        }
 
         /*
         bottom navigation view click listener

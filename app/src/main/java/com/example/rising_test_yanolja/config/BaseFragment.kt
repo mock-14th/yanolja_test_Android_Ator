@@ -1,4 +1,4 @@
-package com.softsquared.template.kotlin.config
+package com.example.rising_test_yanolja.config
 
 import android.content.Context
 import android.os.Bundle

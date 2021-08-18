@@ -8,76 +8,65 @@ import android.text.method.PasswordTransformationMethod
 import android.text.method.SingleLineTransformationMethod
 import android.view.View
 import com.example.rising_test_yanolja.R
+import com.example.rising_test_yanolja.config.BaseActivity
 import com.example.rising_test_yanolja.databinding.ActivityLoginBinding
-import com.softsquared.template.kotlin.config.BaseActivity
+import com.example.rising_test_yanolja.src.login.simple.SimpleLoginFragment
+import com.example.rising_test_yanolja.src.login.yanolja.YanoljaLoginFragment
+import com.google.android.material.tabs.TabLayout
 
-class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate){
-    private var isIdInput = false
-    private var isPwdInput = false
-    private var isPwdToggle = false
+class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
+    private var fmYanoljaLogin : YanoljaLoginFragment? = null
+    private var fmSimpleLogin : SimpleLoginFragment? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        var requestViewPagerPosition = intent.getIntExtra("currentViewPagerIndex",0)
 
-        //IdEdtText에 입력이 되었는지 확인하는 코드
-        binding.loginEdtId.addTextChangedListener(object:TextWatcher{
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
-            }
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(binding.loginEdtId.length()!=0){
-                    isIdInput=true
-                    if(isIdInput&&isPwdInput){
-                        binding.loginBtnLogin.isEnabled=true
+        //activity로 부터 받은 viewpager index값을 넘겨준다.
+        fmYanoljaLogin = YanoljaLoginFragment()
+        var bundle = Bundle()
+        bundle.putInt("currentViewPagerIndex",requestViewPagerPosition)
+        fmYanoljaLogin!!.arguments = bundle
+        supportFragmentManager.beginTransaction().add(R.id.login_frameLayout,fmYanoljaLogin!!).commitAllowingStateLoss()
+
+
+
+
+        //tabLayout누르면 frameLayout의 fragment를 교체해 주는 코드 기존의 fragment가 유지될 수 있도록 구현했다.
+        binding.loginTabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                when(tab!!.position){
+                    0-> {
+                        supportFragmentManager.beginTransaction().show(fmYanoljaLogin!!).commitAllowingStateLoss()
+                        supportFragmentManager.beginTransaction().hide(fmSimpleLogin!!).commitAllowingStateLoss()
                     }
-                }else{
-                    isIdInput=false
-                    binding.loginBtnLogin.isEnabled=false
+                    1->{
+                        if(fmSimpleLogin==null) {
+                            fmSimpleLogin = SimpleLoginFragment()
+                            supportFragmentManager.beginTransaction().add(R.id.login_frameLayout, fmSimpleLogin!!).commitAllowingStateLoss()
+                            supportFragmentManager.beginTransaction().hide(fmYanoljaLogin!!).commitAllowingStateLoss()
+                        } else{
+                            supportFragmentManager.beginTransaction().hide(fmYanoljaLogin!!).commitAllowingStateLoss()
+                            supportFragmentManager.beginTransaction().show(fmSimpleLogin!!).commitAllowingStateLoss()
+                        }
+
+                    }
                 }
             }
-            override fun afterTextChanged(s: Editable?) {
-            }
-        })
-
-        //PasswordEdtText에 입력이 되었는지 확인하는 코드
-        binding.loginEdtPwd.addTextChangedListener(object:TextWatcher{
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
             }
 
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if(binding.loginEdtPwd.length()!=0){
-                    isPwdInput=true
-                    binding.loginBtnPasswdToggle.visibility= View.VISIBLE
-                    if(isIdInput&&isPwdInput){
-                        binding.loginBtnLogin.isEnabled=true
-                    }
-                }else{
-                    isPwdInput=false
-                    binding.loginBtnPasswdToggle.visibility= View.INVISIBLE
-                    binding.loginBtnLogin.isEnabled=false
-                }
+            override fun onTabReselected(tab: TabLayout.Tab?) {
             }
-            override fun afterTextChanged(s: Editable?) {
-            }
+
         })
 
 
-        //passwd toggle 버튼 동작 메소드드
-       binding.loginBtnPasswdToggle.setOnClickListener {
-            if(!isPwdToggle){
-                isPwdToggle=true
-                binding.loginBtnPasswdToggle.setImageResource(R.drawable.close_eye_img)
-                binding.loginEdtPwd.transformationMethod = SingleLineTransformationMethod.getInstance()
-                //binding.loginEdtPwd.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-                binding.loginEdtPwd.setSelection(binding.loginEdtPwd.length())
-            }else{
-                isPwdToggle=false
-                binding.loginBtnPasswdToggle.setImageResource(R.drawable.open_eye_img)
-                binding.loginEdtPwd.transformationMethod = PasswordTransformationMethod.getInstance()
-                //binding.loginEdtPwd.inputType = (InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD)
-                binding.loginEdtPwd.setSelection(binding.loginEdtPwd.length())
-            }
+        //뒤로가기 이미지 버튼 클릭 리스너
+        binding.loginBtnBack.setOnClickListener {
+            this.finish()
         }
 
     }

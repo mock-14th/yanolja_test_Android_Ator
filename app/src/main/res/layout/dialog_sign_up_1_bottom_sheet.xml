@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="30dp">
+
+    <ImageView
+        android:layout_width="15dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/bottom_sheet_cancle_img"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/sign_up_1_botttom_sheet_tx_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="약관 동의"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:fontFamily="@font/dotumpro2"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+
+        <LinearLayout
+            android:id="@+id/sign_up_1_bottom_sheet_btn_all_agree"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@+id/sign_up_1_botttom_sheet_tx_title"
+            app:layout_constraintStart_toStartOf="@id/guidelineStart40dp"
+            app:layout_constraintEnd_toEndOf="@id/guidelineEnd40dp"
+            android:background="@drawable/bottom_dialog_round_bg">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/sign_up_1_bottom_sheet_img_round_check"
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/bottom_sheet_round_check_img"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="전체 동의"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:fontFamily="@font/dotumpro2"
+                android:layout_marginStart="10dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(선택 포함)"
+                android:textColor="#838383"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/dotumpro2"
+                android:textSize="9sp"/>
+        </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sign_up_1_bottom_sheet_constraint_check_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingBottom="15dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart40dp"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd40dp"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_1_bottom_sheet_btn_all_agree">
+
+        <ImageView
+            android:id="@+id/img_check_1"
+            android:layout_width="13dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/check_gray_img"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tx_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/img_check_1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tx_2"
+            android:text="만 14세 이상 이용, 서비스 이용약관, 개인정보"
+            android:textSize="12sp"
+            android:fontFamily="@font/dotumpro2"
+            android:textColor="#838383"/>
+
+        <TextView
+            android:id="@+id/tx_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/img_check_1"
+            app:layout_constraintTop_toBottomOf="@+id/tx_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="수집 및 이용 동의"
+            android:textSize="12sp"
+            android:fontFamily="@font/dotumpro2"
+            android:textColor="#838383"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(필수)"
+                android:textColor="@color/redBtnColor"
+                android:textSize="9sp"
+                android:fontFamily="@font/dotumpro2"
+                android:layout_marginTop="2dp"
+                android:layout_marginStart="3dp"
+                app:layout_constraintStart_toEndOf="@+id/tx_2"
+                app:layout_constraintTop_toBottomOf="@+id/tx_1"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/triangle_down_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sign_up_1_bottom_sheet_constraint_check_2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart40dp"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd40dp"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_1_bottom_sheet_constraint_check_1">
+
+        <ImageView
+            android:id="@+id/img_check_2"
+            android:layout_width="13dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/check_gray_img"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/tx_2_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/img_check_2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/location_agree"
+            android:textSize="12sp"
+            android:fontFamily="@font/dotumpro2"
+            android:textColor="#838383"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(선택)"
+            android:textColor="#838383"
+            android:textSize="9sp"
+            android:fontFamily="@font/dotumpro2"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="3dp"
+            app:layout_constraintStart_toEndOf="@+id/tx_2_1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sign_up_1_bottom_sheet_constraint_check_3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingBottom="20dp"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart40dp"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd40dp"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_1_bottom_sheet_constraint_check_2">
+
+        <ImageView
+            android:id="@+id/img_check_3"
+            android:layout_width="13dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/check_gray_img"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/tx_3_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/img_check_3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="@string/Privacy_agree"
+            android:textSize="12sp"
+            android:fontFamily="@font/dotumpro2"
+            android:textColor="#838383"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(선택)"
+            android:textColor="#838383"
+            android:textSize="9sp"
+            android:fontFamily="@font/dotumpro2"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="3dp"
+            app:layout_constraintStart_toEndOf="@+id/tx_3_1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/sign_up_1_bottom_sheet_constraint_check_4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:paddingStart="10dp"
+        android:paddingBottom="15dp"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart40dp"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd40dp"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_1_bottom_sheet_constraint_check_3">
+
+        <ImageView
+            android:id="@+id/img_check_4"
+            android:layout_width="13dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/check_gray_img"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+        <TextView
+            android:id="@+id/tx_4_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/img_check_4"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="장기 미접속 시에도 계정 유지"
+            android:textSize="12sp"
+            android:fontFamily="@font/dotumpro2"
+            android:textColor="#838383"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="(선택)"
+            android:textColor="#838383"
+            android:textSize="9sp"
+            android:fontFamily="@font/dotumpro2"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="3dp"
+            app:layout_constraintStart_toEndOf="@+id/tx_4_1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/tx_4_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginStart="10dp"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@+id/img_check_4"
+            app:layout_constraintTop_toBottomOf="@+id/tx_4_1"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:text="&#42; 미동의 시 1년 미접속 회원 탈퇴 전환"
+            android:textSize="8sp"
+            android:fontFamily="@font/dotumpro2"
+            android:textColor="#A3A3A3"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/sign_up_1_btn_next"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up_1_bottom_sheet_constraint_check_4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="다음"
+        android:textSize="14sp"
+        android:fontFamily="@font/dotumpro2"
+        android:textColor="@color/white"
+        android:elevation="0dp"
+        android:gravity="center"
+        android:background="@drawable/login_btn_login_round_bg"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:enabled="false" />
+
+
+
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="40dp" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd40dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="40dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

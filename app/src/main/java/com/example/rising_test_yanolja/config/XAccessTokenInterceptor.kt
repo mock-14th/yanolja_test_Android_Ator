@@ -1,7 +1,7 @@
-package com.softsquared.template.kotlin.config
+package com.example.rising_test_yanolja.kotlin.config
 
-import com.softsquared.template.kotlin.config.ApplicationClass.Companion.X_ACCESS_TOKEN
-import com.softsquared.template.kotlin.config.ApplicationClass.Companion.sSharedPreferences
+import com.example.rising_test_yanolja.config.ApplicationClass.Companion.X_ACCESS_TOKEN
+import com.example.rising_test_yanolja.config.ApplicationClass.Companion.sSharedPreferences
 import okhttp3.Interceptor
 import okhttp3.Request
 import okhttp3.Response

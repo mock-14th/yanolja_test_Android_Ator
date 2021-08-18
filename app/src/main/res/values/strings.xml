@@ -70,4 +70,18 @@
     <string name="my_yanolja_btn_setting">설정</string>
 
 
+
+
+    <!--sign_up activity-->
+    <string name="sign_up_appbar_1">회원가입 (1/2)</string>
+    <string name="sign_up_appbar_2">회원가입 (2/2)</string>
+
+    
+    <!--bottom_sheet_밑줄-->
+    <string name="location_agree"><u>위치 정보 이용 약관 동의</u></string>
+    <string name="Privacy_agree"><u>개인정보 수집 및 이용 동의</u></string>
+
+    <!--.sign_up_2-->
+    <string name="sign_up_2notice">인증번호는 <b>카카오 야놀자 알림 채널을 통해 발송</b>됩니다. 수신하지 못했다면 카카오 야놀자 알림 채널 차단 여부를 확인해주세요.</string>
+
 </resources>

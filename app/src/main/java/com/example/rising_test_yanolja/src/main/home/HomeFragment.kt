@@ -5,6 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.example.rising_test_yanolja.R
+import com.example.rising_test_yanolja.config.BaseFragment
 import com.example.rising_test_yanolja.databinding.FragmentHomeBinding
 import com.example.rising_test_yanolja.src.main.home.enjoy.HomeEnjoyFragment
 import com.example.rising_test_yanolja.src.main.home.internalRoom.HomeInternalRoomFragment
@@ -12,9 +13,8 @@ import com.example.rising_test_yanolja.src.main.home.overseasTrip.HomeOverseasTr
 import com.example.rising_test_yanolja.src.main.home.recommend.HomeRecommendFragment
 import com.example.rising_test_yanolja.src.main.home.traffic.HomeTrafficFragment
 import com.google.android.material.tabs.TabLayoutMediator
-import com.softsquared.template.kotlin.config.BaseFragment
 
-class HomeFragment : BaseFragment<FragmentHomeBinding> (FragmentHomeBinding::bind, R.layout.fragment_home){
+class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

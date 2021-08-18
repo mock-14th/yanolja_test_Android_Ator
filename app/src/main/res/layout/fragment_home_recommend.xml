@@ -277,9 +277,9 @@
             app:tabBackground="@drawable/selector_tab"
             app:tabTextAppearance="@style/chip_tab_text"
 
-
-            app:tabPaddingStart="15dp"
-            app:tabPaddingEnd="15dp"
+            app:tabContentStart="37dp"
+            app:tabPaddingStart="20dp"
+            app:tabPaddingEnd="20dp"
             app:tabMinWidth="50dp"
             app:tabIndicatorHeight="0dp"
             app:tabRippleColor="@null"

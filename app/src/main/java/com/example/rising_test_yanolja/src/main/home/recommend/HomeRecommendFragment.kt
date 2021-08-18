@@ -5,19 +5,20 @@ import android.os.Handler
 import android.os.Message
 import android.view.MotionEvent
 import android.view.View
-import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintSet
+import android.view.ViewGroup
+import android.view.ViewGroup.MarginLayoutParams
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.example.rising_test_yanolja.R
+import com.example.rising_test_yanolja.config.BaseFragment
 import com.example.rising_test_yanolja.databinding.*
 import com.example.rising_test_yanolja.src.main.home.recommend.model.NewHotInfo
 import com.example.rising_test_yanolja.src.main.home.recommend.model.NewHotUnderInfo
 import com.example.rising_test_yanolja.src.main.home.recommend.model.TodayMagazineInfo
 import com.google.android.material.tabs.TabLayoutMediator
-import com.softsquared.template.kotlin.config.BaseFragment
+
 
 class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(
     FragmentHomeRecommendBinding::bind,
@@ -101,7 +102,7 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(
 
 
         //부모 activity 변수 생성
-        parentViewPager2 = requireActivity().findViewById<ViewPager2>(R.id.main_home_viewPager2)
+        parentViewPager2 = requireActivity().findViewById(R.id.main_home_viewPager2)
 
 
     }
@@ -224,6 +225,13 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(
         TabLayoutMediator(binding.mainHomeRecommendWeeklyTabLayout,binding.mainHomeRecommendWeeklyViewPager2){ tab, position ->
             tab.text = tabTitleList[position]
         }.attach()
+
+        for (i in 0 until binding.mainHomeRecommendWeeklyTabLayout.getTabCount()) {
+            val tab = (binding.mainHomeRecommendWeeklyTabLayout.getChildAt(0) as ViewGroup).getChildAt(i)
+            val p = tab.layoutParams as MarginLayoutParams
+            p.setMargins(0, 0, 15, 0)
+            tab.requestLayout()
+        }
 
         //weekly_top_viewPager2 swipe할 때 부모 뷰페이저 swipe막는 코드
         binding.mainHomeRecommendWeeklyViewPager2.getChildAt(0).setOnTouchListener { v, event ->
