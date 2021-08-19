@@ -16,20 +16,22 @@
             android:theme="@style/LoginActivity"/>
 
         <activity android:name=".src.signUp.SignUpActivity2"
-            android:theme="@style/LoginActivity"/>
+            android:theme="@style/LoginActivity"
+            android:windowSoftInputMode="adjustResize"/>
 
         <activity android:name=".src.signUp.SignUpActivity1"
             android:theme="@style/LoginActivity"
             android:windowSoftInputMode="adjustResize">
+        </activity>
+
+        <activity android:name=".src.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".src.main.MainActivity">
-
-        </activity>
+        <activity android:name=".src.setting.SettingActivity"/>
     </application>
 
 </manifest>

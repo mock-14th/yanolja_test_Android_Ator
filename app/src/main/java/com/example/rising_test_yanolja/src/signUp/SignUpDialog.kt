@@ -25,6 +25,11 @@ class SignUpDialog : BottomSheetDialogFragment() {
     ): View? {
         binding = DialogSignUp1BottomSheetBinding.inflate(layoutInflater)
 
+        //입력 받은 사용자 email, password 저장
+        var email = arguments?.getString("email","")
+        var password =arguments?.getString("password","")
+
+
         binding.signUp1BottomSheetBtnAllAgree.setOnClickListener {
             if (!isAllAgree){
                 isAllAgree=true
@@ -149,8 +154,12 @@ class SignUpDialog : BottomSheetDialogFragment() {
             }
         }
 
+
+        //다음 버튼 클릭 리스너
         binding.signUp1BtnNext.setOnClickListener {
             var intent = Intent(context,SignUpActivity2::class.java)
+            intent.putExtra("email",email)
+            intent.putExtra("password",password)
             startActivity(intent)
         }
 

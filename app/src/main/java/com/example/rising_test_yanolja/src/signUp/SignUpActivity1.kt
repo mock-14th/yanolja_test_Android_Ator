@@ -1,17 +1,20 @@
 package com.example.rising_test_yanolja.src.signUp
 
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.text.method.PasswordTransformationMethod
 import android.text.method.SingleLineTransformationMethod
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.widget.addTextChangedListener
 import com.example.rising_test_yanolja.R
 import com.example.rising_test_yanolja.config.BaseActivity
 import com.example.rising_test_yanolja.databinding.ActivitySignUp1Binding
+import java.util.regex.Matcher
 import java.util.regex.Pattern
 
 class SignUpActivity1 : BaseActivity<ActivitySignUp1Binding>(ActivitySignUp1Binding::inflate) {
@@ -24,6 +27,18 @@ class SignUpActivity1 : BaseActivity<ActivitySignUp1Binding>(ActivitySignUp1Bind
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+
+        //회원가입 activity 들어오면 edt id로 강제 포커싱을 준다.
+        binding.signUpEdtId.post(Runnable {
+            binding.signUpEdtId.setFocusableInTouchMode(true)
+            binding.signUpEdtId.requestFocus()
+            val imm: InputMethodManager =
+                getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+            imm.showSoftInput(binding.signUpEdtId, 0)
+        })
+
+
 
         //x버튼 누르면 activity 종료하기
         binding.signUpBtnBack.setOnClickListener {
@@ -57,6 +72,10 @@ class SignUpActivity1 : BaseActivity<ActivitySignUp1Binding>(ActivitySignUp1Bind
                 else
                     binding.signUpBtnIdReset.visibility=View.INVISIBLE
 
+
+                //입력 받는 값이 email형식인지 확인하고 맞으면 다음 버튼 활성화
+                binding.signUpBtnNext.isEnabled = isEmailValid(inputId)
+
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -66,9 +85,30 @@ class SignUpActivity1 : BaseActivity<ActivitySignUp1Binding>(ActivitySignUp1Bind
 
 
 
+
         //edtId reset btn 클릭 리스너
         binding.signUpBtnIdReset.setOnClickListener {
             binding.signUpEdtId.text=null
+        }
+
+
+        //다음 버튼 클릭 리스너
+        binding.signUpBtnNext.setOnClickListener {
+            binding.signUpTextInputLayoutPwd.visibility=View.VISIBLE
+            binding.signUpTextInputLayoutPwdCheck.visibility=View.VISIBLE
+            binding.signUpBtnOk.visibility=View.VISIBLE
+            binding.signUpBtnNext.visibility=View.INVISIBLE
+
+
+            //다음 버튼 누르면 edt pwd로 강제 포커싱을 준다.
+            binding.signUpEdtPwd.post(Runnable {
+                binding.signUpEdtPwd.setFocusableInTouchMode(true)
+                binding.signUpEdtPwd.requestFocus()
+                val imm: InputMethodManager =
+                    getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.showSoftInput(binding.signUpEdtPwd, 0)
+            })
+
         }
 
 
@@ -113,6 +153,7 @@ class SignUpActivity1 : BaseActivity<ActivitySignUp1Binding>(ActivitySignUp1Bind
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                var inputPwdCheck = binding.signUpEdtPwdCheck.text.toString()
                 isWronPwd=false
                 binding.signUpTextInputLayoutPwd.error=null
                 binding.signUpTxWrongGuide.visibility=View.INVISIBLE
@@ -120,11 +161,29 @@ class SignUpActivity1 : BaseActivity<ActivitySignUp1Binding>(ActivitySignUp1Bind
 
 
                 if (binding.signUpEdtPwd.length() != 0) {
-                    binding.signUpBtnPasswdToggle.visibility = View.VISIBLE
+                    if(binding.signUpEdtPwd.text.toString().equals(inputPwdCheck) && !inputPwdCheck.isEmpty()){
+                        binding.signUpImgPasswdOk.visibility=View.VISIBLE
+                        binding.signUpBtnPasswdToggle.visibility=View.INVISIBLE
+
+                        binding.signUpTextInputLayoutPwdCheck.error=null
+                        binding.signUpTxDifferentGuide.visibility=View.INVISIBLE
+                        binding.signUpImgPasswdCheckOk.visibility=View.VISIBLE
+
+
+                    }else{
+                        binding.signUpBtnPasswdToggle.visibility = View.VISIBLE
+                    }
                 } else {
                     binding.signUpBtnPasswdToggle.visibility = View.INVISIBLE
                 }
 
+
+                if(!binding.signUpEdtPwd.text.toString().equals(inputPwdCheck) && !inputPwdCheck.isEmpty()) { //edtPwd와 edtPwdCheck의 입력값이 틀리면 확인 버튼 비활성화
+                    binding.signUpTextInputLayoutPwdCheck.error = " "
+                    binding.signUpTxDifferentGuide.visibility = View.VISIBLE
+                    binding.signUpBtnOk.isEnabled = false
+                    binding.signUpImgPasswdCheckOk.visibility=View.INVISIBLE
+                }
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -145,6 +204,8 @@ class SignUpActivity1 : BaseActivity<ActivitySignUp1Binding>(ActivitySignUp1Bind
                     binding.signUpTextInputLayoutPwdCheck.error=" "
                     binding.signUpTxDifferentGuide.visibility=View.VISIBLE
                     binding.signUpBtnOk.isEnabled=false
+                    binding.signUpImgPasswdCheckOk.visibility=View.INVISIBLE
+
 
                 }else{ //edtPwd와 edtPwdCheck의 입력값이 같으면 확인 버튼 활성화
                     binding.signUpTextInputLayoutPwdCheck.error=null
@@ -154,10 +215,22 @@ class SignUpActivity1 : BaseActivity<ActivitySignUp1Binding>(ActivitySignUp1Bind
                 }
 
                 if (binding.signUpEdtPwd.length() != 0) {
-                    binding.signUpBtnPasswdCheckToggle.visibility = View.VISIBLE
+                    if(binding.signUpEdtPwd.text.toString().equals(inputPwdCheck) && !inputPwdCheck.isEmpty()){
+                        binding.signUpImgPasswdCheckOk.visibility=View.VISIBLE
+                        binding.signUpBtnPasswdCheckToggle.visibility=View.INVISIBLE
+
+                    }else{
+                        binding.signUpBtnPasswdCheckToggle.visibility = View.VISIBLE
+                    }
+
                 } else {
                     binding.signUpBtnPasswdCheckToggle.visibility = View.INVISIBLE
                 }
+
+
+
+
+
             }
 
             override fun afterTextChanged(s: Editable?) {
@@ -176,14 +249,12 @@ class SignUpActivity1 : BaseActivity<ActivitySignUp1Binding>(ActivitySignUp1Bind
                     if(!inputPwdCheck.isEmpty()){
                         binding.signUpTxDifferentGuide.visibility=View.INVISIBLE
                         binding.signUpTextInputLayoutPwdCheck.error=null
-                        binding.signUpImgPasswdCheckOk.visibility=View.VISIBLE
                     }
                 }
 
-
-
                 if (!inputPwdCheck.isEmpty())
                     binding.signUpBtnPasswdCheckToggle.visibility=View.VISIBLE
+
             }else{
                 binding.signUpBtnPasswdCheckToggle.visibility=View.INVISIBLE
                 if (binding.signUpBtnOk.isEnabled)
@@ -238,10 +309,19 @@ class SignUpActivity1 : BaseActivity<ActivitySignUp1Binding>(ActivitySignUp1Bind
         //확인 버튼 클릭 리스너
         binding.signUpBtnOk.setOnClickListener {
             val bottomSheet = SignUpDialog()
+            var bundle = Bundle()
+            bundle.putString("email",binding.signUpEdtId.text.toString())
+            bundle.putString("password",binding.signUpEdtPwd.text.toString())
+            bottomSheet!!.arguments = bundle
             bottomSheet.show(supportFragmentManager,bottomSheet.tag)
         }
+    }
 
-
+    fun isEmailValid(email: String?): Boolean {
+        val expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$"
+        val pattern: Pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)
+        val matcher: Matcher = pattern.matcher(email)
+        return matcher.matches()
     }
 
 }

@@ -150,6 +150,7 @@
                         app:layout_constraintTop_toTopOf="@+id/main_my_yanolja_img_point" />
 
                     <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/main_my_yanolja_img_right"
                         android:layout_width="6.5dp"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="3.5dp"
@@ -357,7 +358,7 @@
                 android:id="@+id/main_my_yanolja_img_banner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="30dp"
                 android:adjustViewBounds="true"
                 android:src="@drawable/my_yanolja_banner_img"
                 app:layout_constraintTop_toBottomOf="@+id/main_my_yanolja_login_linear" />
@@ -404,13 +405,13 @@
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <androidx.appcompat.widget.AppCompatImageView
-                    android:layout_width="6.5dp"
+                    android:layout_width="7dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="3.5dp"
                     android:adjustViewBounds="true"
                     android:src="@drawable/right2_img"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -449,13 +450,13 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="6.5dp"
+                        android:layout_width="7dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3.5dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/right2_img"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <!--2_2-->
@@ -478,13 +479,13 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="6.5dp"
+                        android:layout_width="7dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3.5dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/right2_img"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <!--2_3-->
@@ -507,13 +508,13 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="6.5dp"
+                        android:layout_width="7dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3.5dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/right2_img"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <!--2_4-->
@@ -536,13 +537,13 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="6.5dp"
+                        android:layout_width="7dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3.5dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/right2_img"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
 
@@ -581,13 +582,13 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="6.5dp"
+                        android:layout_width="7dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3.5dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/right2_img"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <!--3_2-->
@@ -610,13 +611,13 @@
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <androidx.appcompat.widget.AppCompatImageView
-                        android:layout_width="6.5dp"
+                        android:layout_width="7dp"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="3.5dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/right2_img"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </LinearLayout>
 
@@ -1065,6 +1066,7 @@
 
                 <!--설정-->
                 <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/main_my_yanolja_btn_setting"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -1111,6 +1113,354 @@
 
 
 
+            <!--로그인 후 login Linear Layout-->
+            <LinearLayout
+                android:id="@+id/main_my_yanolja_login_linear_hasJWT"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/main_my_yanolja_linear_round_bg"
+                android:elevation="2dp"
+                android:orientation="vertical"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <!--1-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/main_my_yanolja_btn_login_before_hasJWT"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/main_my_yanolja_linear_top_round_bg"
+                    android:padding="15dp">
+
+                    <ImageView
+                        android:id="@+id/main_my_yanolja_img_profile_hasJWT"
+                        android:layout_width="35dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/profile_img"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"/>
+                    
+                    <TextView
+                        android:id="@+id/main_my_yanolja_tx_nickname_hasJWT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="둥실둥실복사꽃0036"
+                        android:textSize="13sp"
+                        android:textColor="@color/black"
+                        android:layout_marginStart="7dp"
+                        app:layout_constraintBottom_toTopOf="@+id/main_my_yanolja_btn_my_info_manage"
+                        app:layout_constraintStart_toEndOf="@+id/main_my_yanolja_img_profile_hasJWT"
+                        app:layout_constraintTop_toTopOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/main_my_yanolja_btn_my_info_manage"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="내정보 관리 >"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/dotumpro1"
+                        android:textSize="9sp"
+                        android:layout_marginStart="7dp"
+                        android:layout_marginTop="3dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/main_my_yanolja_img_profile_hasJWT"
+                        app:layout_constraintTop_toBottomOf="@+id/main_my_yanolja_tx_nickname_hasJWT"/>
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <!--2-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/main_my_yanolja_linear_rectangle_bg"
+                    android:paddingStart="15dp"
+                    android:paddingTop="16dp"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="16dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/main_my_yanolja_img_point_hasJWT"
+                        android:layout_width="18.5dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/point_img"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/dotumpro1"
+                        android:text="@string/my_yanolja_point"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/main_my_yanolja_img_point_hasJWT"
+                        app:layout_constraintTop_toTopOf="@+id/main_my_yanolja_img_point_hasJWT" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/main_my_yanolja_img_point_right_hasJWT"
+                        android:layout_width="7dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/right2_img"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <TextView
+                        android:id="@+id/main_my_yanolja_tx_point_hasJWT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+
+                        android:layout_marginRight="5dp"
+
+                        app:layout_constraintEnd_toStartOf="@+id/main_my_yanolja_img_point_right_hasJWT"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--3-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/main_my_yanolja_linear_rectangle_bg"
+                    android:paddingStart="15dp"
+                    android:paddingTop="16dp"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="16dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/main_my_yanolja_img_yanolja_coin_hasJWT"
+                        android:layout_width="18.5dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/yanolja_coin_img"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="2dp"
+                        android:fontFamily="@font/dotumpro1"
+                        android:text="@string/my_yanolja_coin"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/main_my_yanolja_img_yanolja_coin_hasJWT"
+                        app:layout_constraintTop_toTopOf="@+id/main_my_yanolja_img_yanolja_coin_hasJWT" />
+
+                    <TextView
+                        android:id="@+id/main_my_yanolja_tx_coin_hasJWT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginEnd="15dp"
+                        android:fontFamily="@font/dotumpro2"
+                        android:text="@string/my_yanolja_coin_explane"
+                        android:textSize="10.5sp"
+                        app:layout_constraintEnd_toEndOf="@+id/main_my_yanolja_coin_img_right_hasJWT"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/main_my_yanolja_coin_img_right_hasJWT"
+                        android:layout_width="7dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/right2_img"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--4-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/main_my_yanolja_linear_rectangle_bg"
+                    android:paddingStart="15dp"
+                    android:paddingTop="16dp"
+                    android:paddingEnd="15dp"
+                    android:paddingBottom="16dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/main_my_yanolja_img_cupon_box_hasJWT"
+                        android:layout_width="18.5dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/cupon_box_img"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/main_my_yanolja_tx_coupon_box"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="5dp"
+                        android:layout_marginTop="1dp"
+                        android:fontFamily="@font/dotumpro1"
+                        android:text="@string/my_yanolja_cupon_box"
+                        android:textColor="@color/black"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@+id/main_my_yanolja_img_cupon_box_hasJWT"
+                        app:layout_constraintTop_toTopOf="@+id/main_my_yanolja_img_cupon_box_hasJWT" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="소멸예정 쿠폰이 있어요!"
+                        android:textSize="9.5sp"
+                        android:textColor="@color/redBtnColor"
+                        android:layout_marginStart="2dp"
+                        app:layout_constraintVertical_bias="0.4"
+                        app:layout_constraintStart_toEndOf="@+id/main_my_yanolja_tx_coupon_box"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/main_my_yanolja_img_cupon_right_hasJWT"
+                        android:layout_width="7dp"
+                        android:layout_height="wrap_content"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/right2_img"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+                    <TextView
+                        android:id="@+id/main_my_yanolja_tx_coupon_count_hasJWT"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="35"
+                        android:textColor="@color/black"
+                        android:textSize="15sp"
+                        android:textStyle="bold"
+                        android:layout_marginRight="5dp"
+
+                        app:layout_constraintEnd_toStartOf="@+id/main_my_yanolja_img_cupon_right_hasJWT"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+                <!--5-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <!--5_1-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/main_my_yanolja_btn_my_postscript_hasJWT"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/main_my_yanolja_linear_bottom_left_round_bg"
+                        android:paddingStart="15dp"
+                        android:paddingTop="17dp"
+                        android:paddingEnd="15dp"
+                        android:paddingBottom="17dp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/main_my_yanolja_img_my_postscript_hasJWT"
+                            android:layout_width="18.5dp"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/my_postscript_img"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="2dp"
+                            android:fontFamily="@font/dotumpro1"
+                            android:text="@string/my_yanolja_my_postscript"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toEndOf="@+id/main_my_yanolja_img_my_postscript_hasJWT"
+                            app:layout_constraintTop_toTopOf="@+id/main_my_yanolja_img_my_postscript_hasJWT" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="7dp"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/right2_img"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!--5_2-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/main_my_yanolja_btn_like_hasJWT"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/main_my_yanolja_linear_bottom_right_round_bg"
+                        android:paddingStart="15dp"
+                        android:paddingTop="17dp"
+                        android:paddingEnd="15dp"
+                        android:paddingBottom="18.5dp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/main_my_yanolja_img_like_hasJWT"
+                            android:layout_width="18.5dp"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/my_yanolja_like_img"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="5dp"
+                            android:layout_marginTop="1dp"
+                            android:fontFamily="@font/dotumpro1"
+                            android:text="@string/my_yanolja_like"
+                            android:textColor="@color/black"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toEndOf="@+id/main_my_yanolja_img_like_hasJWT"
+                            app:layout_constraintTop_toTopOf="@+id/main_my_yanolja_img_like_hasJWT" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="7dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3.5dp"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/right2_img"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"/>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
             <!--MY 예약 버튼-->
             <androidx.appcompat.widget.AppCompatTextView
                 android:layout_width="wrap_content"
@@ -1128,6 +1478,7 @@
                 android:translationZ="2dp"
                 app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
                 app:layout_constraintTop_toTopOf="@+id/main_my_yanolja_login_linear" />
+
 
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guidelineStart"

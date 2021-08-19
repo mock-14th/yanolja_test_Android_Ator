@@ -64,7 +64,8 @@
                 android:layout_height="wrap_content"
                 android:text="(선택 포함)"
                 android:textColor="#838383"
-                android:layout_marginStart="5dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginTop="3dp"
                 android:fontFamily="@font/dotumpro2"
                 android:textSize="9sp"/>
         </LinearLayout>
@@ -73,7 +74,7 @@
         android:id="@+id/sign_up_1_bottom_sheet_constraint_check_1"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingStart="10dp"
+        android:paddingStart="5dp"
         android:paddingBottom="15dp"
         android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="@id/guidelineStart40dp"
@@ -82,10 +83,11 @@
 
         <ImageView
             android:id="@+id/img_check_1"
-            android:layout_width="13dp"
+            android:layout_width="23dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
             android:src="@drawable/check_gray_img"
+            android:padding="6dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
@@ -146,7 +148,7 @@
         android:id="@+id/sign_up_1_bottom_sheet_constraint_check_2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingStart="10dp"
+        android:paddingStart="5dp"
         android:paddingBottom="20dp"
         app:layout_constraintStart_toStartOf="@id/guidelineStart40dp"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd40dp"
@@ -154,9 +156,10 @@
 
         <ImageView
             android:id="@+id/img_check_2"
-            android:layout_width="13dp"
+            android:layout_width="23dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
+            android:padding="6dp"
             android:src="@drawable/check_gray_img"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -199,7 +202,7 @@
         android:id="@+id/sign_up_1_bottom_sheet_constraint_check_3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingStart="10dp"
+        android:paddingStart="5dp"
         android:paddingBottom="20dp"
         app:layout_constraintStart_toStartOf="@id/guidelineStart40dp"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd40dp"
@@ -207,9 +210,10 @@
 
         <ImageView
             android:id="@+id/img_check_3"
-            android:layout_width="13dp"
+            android:layout_width="23dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
+            android:padding="6dp"
             android:src="@drawable/check_gray_img"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -250,7 +254,7 @@
         android:id="@+id/sign_up_1_bottom_sheet_constraint_check_4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:paddingStart="10dp"
+        android:paddingStart="5dp"
         android:paddingBottom="15dp"
         app:layout_constraintStart_toStartOf="@id/guidelineStart40dp"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd40dp"
@@ -258,9 +262,10 @@
 
         <ImageView
             android:id="@+id/img_check_4"
-            android:layout_width="13dp"
+            android:layout_width="23dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
+            android:padding="6dp"
             android:src="@drawable/check_gray_img"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

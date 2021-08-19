@@ -94,6 +94,7 @@
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         android:paddingTop="15dp"
         android:layout_marginTop="30dp"
+        android:visibility="invisible"
 
         app:boxStrokeErrorColor="@color/redBtnColor"
         app:errorTextColor="#818181"
@@ -128,7 +129,8 @@
         app:layout_constraintTop_toBottomOf="@+id/sign_up_textInputLayout_pwd"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
+        android:visibility="invisible"
 
         app:errorIconDrawable="@null"
         app:boxStrokeErrorColor="@color/redBtnColor"
@@ -300,6 +302,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent">
+
+        <!--다음 버튼-->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/sign_up_btn_next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:text="다음"
+            android:textSize="14sp"
+            android:fontFamily="@font/dotumpro2"
+            android:textColor="@color/white"
+            android:elevation="0dp"
+            android:gravity="center"
+            android:background="@drawable/login_btn_login_round_bg"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:enabled="false" />
+
+
+
         <!--확인 버튼-->
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/sign_up_btn_ok"
@@ -318,6 +343,7 @@
             android:background="@drawable/login_btn_login_round_bg"
             android:paddingTop="15dp"
             android:paddingBottom="15dp"
+            android:visibility="invisible"
             android:enabled="false" />
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>

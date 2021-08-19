@@ -47,6 +47,10 @@
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         android:layout_marginTop="30dp"
 
+
+        app:errorIconDrawable="@null"
+        app:errorTextColor="#818181"
+        app:errorEnabled="true"
         app:boxStrokeWidthFocused="1dp"
         app:boxCollapsedPaddingTop="-15dp"
         app:hintTextAppearance="@style/HintTextAppearance"
@@ -72,7 +76,7 @@
         android:id="@+id/login_btn_login"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="35dp"
         android:text="로그인"
         android:textSize="14sp"
         android:fontFamily="@font/dotumpro2"
@@ -139,10 +143,29 @@
         android:adjustViewBounds="true"
         android:src="@drawable/open_eye_img"
         android:layout_marginEnd="7dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="30dp"
         android:visibility="invisible"
         app:layout_constraintEnd_toEndOf="@+id/login_textInputLayout_pwd"
         app:layout_constraintBottom_toBottomOf="@+id/login_textInputLayout_pwd"/>
+
+
+
+    <!--로그인 실패 시 보여줄 tx-->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/login_tx_fail_login"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="이메일(ID 또는 이메일)과 비밀번호를 확인 후 다시 로그인해주세요. (5회이상 오류시 로그인 차단)"
+        android:layout_marginTop="-10dp"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+        app:layout_constraintTop_toBottomOf="@+id/login_textInputLayout_pwd"
+        android:visibility="invisible"
+        android:textColor="@color/redBtnColor"
+        android:fontFamily="@font/dotumpro2"
+        android:textSize="10sp"/>
+
+
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineStart"
