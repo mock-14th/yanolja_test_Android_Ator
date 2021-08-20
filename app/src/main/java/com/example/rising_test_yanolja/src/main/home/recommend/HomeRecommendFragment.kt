@@ -226,6 +226,7 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(
             tab.text = tabTitleList[position]
         }.attach()
 
+        //tabLayout의 tab사이에 마진 주는 방법
         for (i in 0 until binding.mainHomeRecommendWeeklyTabLayout.getTabCount()) {
             val tab = (binding.mainHomeRecommendWeeklyTabLayout.getChildAt(0) as ViewGroup).getChildAt(i)
             val p = tab.layoutParams as MarginLayoutParams

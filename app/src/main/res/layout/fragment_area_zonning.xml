@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/main_area_left_nestedScrollview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guidelineBias"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <!--왼쪽 메뉴 버튼-->
+        <LinearLayout
+            android:id="@+id/main_area_left_linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--서울 버튼-->
+            <LinearLayout
+                android:id="@+id/main_area_btn_0"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_true"
+                android:orientation="vertical"
+                android:paddingTop="14dp">
+
+                <TextView
+                    android:id="@+id/main_area_tx_0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="서울"
+                    android:textColor="@color/black"
+                    android:textSize="12.5sp" />
+
+                <View
+                    android:id="@+id/line0"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/color_gray" />
+            </LinearLayout>
+
+            <!--경기 버튼-->
+            <LinearLayout
+                android:id="@+id/main_area_btn_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_false"
+                android:orientation="vertical"
+                android:paddingTop="14dp">
+
+                <TextView
+                    android:id="@+id/main_area_tx_1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="경기"
+                    android:textColor="@color/tabTextGray"
+                    android:textSize="12.5sp" />
+
+                <View
+                    android:id="@+id/line1"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/color_gray" />
+            </LinearLayout>
+
+            <!--인천 버튼-->
+            <LinearLayout
+                android:id="@+id/main_area_btn_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_false"
+                android:orientation="vertical"
+                android:paddingTop="14dp">
+
+                <TextView
+                    android:id="@+id/main_area_tx_2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="인천"
+                    android:textColor="@color/tabTextGray"
+                    android:textSize="12.5sp" />
+
+                <View
+                    android:id="@+id/line2"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/color_gray" />
+            </LinearLayout>
+
+            <!--강원 버튼-->
+            <LinearLayout
+                android:id="@+id/main_area_btn_3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_false"
+                android:orientation="vertical"
+                android:paddingTop="14dp">
+
+                <TextView
+                    android:id="@+id/main_area_tx_3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="강원"
+                    android:textColor="@color/tabTextGray"
+                    android:textSize="12.5sp" />
+
+                <View
+                    android:id="@+id/line3"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/color_gray" />
+            </LinearLayout>
+
+            <!--제주 버튼-->
+            <LinearLayout
+                android:id="@+id/main_area_btn_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_false"
+                android:orientation="vertical"
+                android:paddingTop="14dp">
+
+                <TextView
+                    android:id="@+id/main_area_tx_4"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="제주"
+                    android:textColor="@color/tabTextGray"
+                    android:textSize="12.5sp" />
+
+                <View
+                    android:id="@+id/line4"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/color_gray" />
+            </LinearLayout>
+
+            <!--대전 버튼-->
+            <LinearLayout
+                android:id="@+id/main_area_btn_5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_false"
+                android:orientation="vertical"
+                android:paddingTop="14dp">
+
+                <TextView
+                    android:id="@+id/main_area_tx_5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="대전"
+                    android:textColor="@color/tabTextGray"
+                    android:textSize="12.5sp" />
+
+                <View
+                    android:id="@+id/line5"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/color_gray" />
+            </LinearLayout>
+
+            <!--충북 버튼-->
+            <LinearLayout
+                android:id="@+id/main_area_btn_6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_false"
+                android:orientation="vertical"
+                android:paddingTop="14dp">
+
+                <TextView
+                    android:id="@+id/main_area_tx_6"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="충북"
+                    android:textColor="@color/tabTextGray"
+                    android:textSize="12.5sp" />
+
+                <View
+                    android:id="@+id/line6"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/color_gray" />
+            </LinearLayout>
+
+            <!--충남/세종 버튼-->
+            <LinearLayout
+                android:id="@+id/main_area_btn_7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_false"
+                android:orientation="vertical"
+                android:paddingTop="14dp">
+
+                <TextView
+                    android:id="@+id/main_area_tx_7"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="충남/세종"
+                    android:textColor="@color/tabTextGray"
+                    android:textSize="12.5sp" />
+
+                <View
+                    android:id="@+id/line7"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/color_gray" />
+            </LinearLayout>
+
+            <!--부산 버튼-->
+            <LinearLayout
+                android:id="@+id/main_area_btn_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_false"
+                android:orientation="vertical"
+                android:paddingTop="14dp">
+
+                <TextView
+                    android:id="@+id/main_area_tx_8"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="부산"
+                    android:textColor="@color/tabTextGray"
+                    android:textSize="12.5sp" />
+
+                <View
+                    android:id="@+id/line8"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/color_gray" />
+            </LinearLayout>
+
+            <!--울산 버튼-->
+            <LinearLayout
+                android:id="@+id/main_area_btn_9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_false"
+                android:orientation="vertical"
+                android:paddingTop="14dp">
+
+                <TextView
+                    android:id="@+id/main_area_tx_9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="울산"
+                    android:textColor="@color/tabTextGray"
+                    android:textSize="12.5sp" />
+
+                <View
+                    android:id="@+id/line9"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/color_gray" />
+            </LinearLayout>
+
+            <!--경남 버튼-->
+            <LinearLayout
+                android:id="@+id/main_area_btn_10"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_false"
+                android:orientation="vertical"
+                android:paddingTop="14dp">
+
+                <TextView
+                    android:id="@+id/main_area_tx_10"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="경남"
+                    android:textColor="@color/tabTextGray"
+                    android:textSize="12.5sp" />
+
+                <View
+                    android:id="@+id/line10"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/color_gray" />
+            </LinearLayout>
+
+            <!--대구 버튼-->
+            <LinearLayout
+                android:id="@+id/main_area_btn_11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_false"
+                android:orientation="vertical"
+                android:paddingTop="14dp">
+
+                <TextView
+                    android:id="@+id/main_area_tx_11"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="대구"
+                    android:textColor="@color/tabTextGray"
+                    android:textSize="12.5sp" />
+
+                <View
+                    android:id="@+id/line11"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/color_gray" />
+            </LinearLayout>
+
+            <!--경북 버튼-->
+            <LinearLayout
+                android:id="@+id/main_area_btn_12"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_false"
+                android:orientation="vertical"
+                android:paddingTop="14dp">
+
+                <TextView
+                    android:id="@+id/main_area_tx_12"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="경북"
+                    android:textColor="@color/tabTextGray"
+                    android:textSize="12.5sp" />
+
+                <View
+                    android:id="@+id/line12"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/color_gray" />
+            </LinearLayout>
+
+            <!--광주 버튼-->
+            <LinearLayout
+                android:id="@+id/main_area_btn_13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_false"
+                android:orientation="vertical"
+                android:paddingTop="14dp">
+
+                <TextView
+                    android:id="@+id/main_area_tx_13"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="광주"
+                    android:textColor="@color/tabTextGray"
+                    android:textSize="12.5sp" />
+
+                <View
+                    android:id="@+id/line13"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/color_gray" />
+            </LinearLayout>
+
+            <!--전남 버튼-->
+            <LinearLayout
+                android:id="@+id/main_area_btn_14"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_false"
+                android:orientation="vertical"
+                android:paddingTop="14dp">
+
+                <TextView
+                    android:id="@+id/main_area_tx_14"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="전남"
+                    android:textColor="@color/tabTextGray"
+                    android:textSize="12.5sp" />
+
+                <View
+                    android:id="@+id/line14"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/color_gray" />
+            </LinearLayout>
+
+            <!--전주/전북 버튼-->
+            <LinearLayout
+                android:id="@+id/main_area_btn_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/solid_false"
+                android:orientation="vertical"
+                android:paddingTop="14dp">
+
+                <TextView
+                    android:id="@+id/main_area_tx_15"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="전주/전북"
+                    android:textColor="@color/tabTextGray"
+                    android:textSize="12.5sp" />
+
+                <View
+                    android:id="@+id/line15"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="14dp"
+                    android:background="@color/color_gray" />
+            </LinearLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+    <!--오른쪽 리사이클러뷰-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/main_area_right_recyclerView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guidelineBias"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+    <!--가운데 세로 선-->
+    <View
+        android:id="@+id/lineMiddle"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="@color/clickGray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/main_area_left_nestedScrollview"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineBias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.35" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

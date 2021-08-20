@@ -47,13 +47,17 @@
         app:layout_constraintTop_toBottomOf="@+id/login_appBarLayout"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+
+        app:tabMaxWidth="0dp"
         app:tabIndicatorColor="@color/black"
-        app:tabIndicatorHeight="1.2dp"
+        app:tabIndicatorHeight="1.5dp"
         app:tabMode="fixed"
+        app:tabGravity="fill"
         app:tabPaddingEnd="10dp"
         app:tabPaddingStart="10dp"
         app:tabRippleColor="@null"
         app:tabSelectedTextColor="@color/black"
+        app:tabTextColor="@color/tabTextGray"
         app:tabTextAppearance="@style/login_activity_tabLayout_text">
 
         <com.google.android.material.tabs.TabItem

@@ -68,7 +68,7 @@
 
     <!--tabLayout tab Text Size-->
     <style name="tab_text">
-        <item name="android:textSize">14sp</item>
+        <item name="android:textSize">13sp</item>
         <item name="android:textStyle">bold</item>
     </style>
 
@@ -86,10 +86,18 @@
         <item name="fontFamily">@font/dotumpro2</item>
     </style>
 
+
+    <!--tabLayout custom to chip tab Text Size-->
+    <style name="chip_tab_station_text">
+        <item name="android:textSize">10sp</item>
+    </style>
+
+
+
     <!--login activity tabLayout text Size-->
     <style name="login_activity_tabLayout_text">
-        <item name="android:textSize">13sp</item>
-        <item name="fontFamily">@font/dotumpro2</item>
+        <item name="android:textSize">12.5sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
 

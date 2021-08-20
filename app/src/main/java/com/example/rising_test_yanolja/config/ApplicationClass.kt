@@ -14,6 +14,12 @@ import java.util.concurrent.TimeUnit
 class ApplicationClass : Application() {
     val API_URL = "https://dev.lisugangs-ite.shop/"
 
+    //네이버 아이디와 시크릿 넘버
+    object NAVER_MAP_API{
+        const val CLINET_ID : String = "s5hfqmvp1o"
+        const val CLIENT_SECRET : String = "gCrBzSdAfQr4tL28vjFpHN4tkdjYoODDflVijtBc"
+    }
+
     // 코틀린의 전역변수 문법
     companion object {
         // 만들어져있는 SharedPreferences 를 사용해야합니다. 재생성하지 않도록 유념해주세요

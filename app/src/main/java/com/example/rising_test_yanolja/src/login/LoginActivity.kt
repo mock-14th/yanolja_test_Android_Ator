@@ -32,8 +32,6 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         supportFragmentManager.beginTransaction().add(R.id.login_frameLayout,fmYanoljaLogin!!).commitAllowingStateLoss()
 
 
-
-
         //tabLayout누르면 frameLayout의 fragment를 교체해 주는 코드 기존의 fragment가 유지될 수 있도록 구현했다.
         binding.loginTabLayout.addOnTabSelectedListener(object: TabLayout.OnTabSelectedListener{
             override fun onTabSelected(tab: TabLayout.Tab?) {

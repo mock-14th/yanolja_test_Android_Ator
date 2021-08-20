@@ -19,6 +19,9 @@ allprojects {
         google()
         mavenCentral()
         jcenter() // Warning: this repository is going to shut down soon
+        maven{
+            url 'https://naver.jfrog.io/artifactory/maven/' //maven("~") 형식으로 하면 오류남
+        }
     }
 }
 

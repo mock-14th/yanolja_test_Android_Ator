@@ -79,7 +79,7 @@
             android:theme="@style/MainHomeTabTheme"
             app:tabIndicatorHeight="3dp"
             app:tabTextColor="@color/black"
-            app:tabGravity="start"
+            app:tabGravity="fill"
             app:tabIndicatorFullWidth="false"
             app:tabMode="fixed"
             app:tabTextAppearance="@style/tab_text"
