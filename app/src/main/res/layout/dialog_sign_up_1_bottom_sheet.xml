@@ -75,7 +75,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingStart="5dp"
-        android:paddingBottom="15dp"
+        android:paddingBottom="20dp"
         android:layout_marginTop="15dp"
         app:layout_constraintStart_toStartOf="@id/guidelineStart40dp"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd40dp"
@@ -102,7 +102,6 @@
             app:layout_constraintBottom_toTopOf="@+id/tx_2"
             android:text="만 14세 이상 이용, 서비스 이용약관, 개인정보"
             android:textSize="12sp"
-            android:fontFamily="@font/dotumpro2"
             android:textColor="#838383"/>
 
         <TextView
@@ -116,7 +115,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:text="수집 및 이용 동의"
             android:textSize="12sp"
-            android:fontFamily="@font/dotumpro2"
             android:textColor="#838383"/>
 
             <TextView
@@ -177,7 +175,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:text="@string/location_agree"
             android:textSize="12sp"
-            android:fontFamily="@font/dotumpro2"
             android:textColor="#838383"/>
 
         <TextView
@@ -231,7 +228,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:text="@string/Privacy_agree"
             android:textSize="12sp"
-            android:fontFamily="@font/dotumpro2"
             android:textColor="#838383"/>
 
         <TextView
@@ -255,7 +251,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:paddingStart="5dp"
-        android:paddingBottom="15dp"
+        android:paddingBottom="20dp"
         app:layout_constraintStart_toStartOf="@id/guidelineStart40dp"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd40dp"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_1_bottom_sheet_constraint_check_3">
@@ -281,7 +277,6 @@
             app:layout_constraintTop_toTopOf="parent"
             android:text="장기 미접속 시에도 계정 유지"
             android:textSize="12sp"
-            android:fontFamily="@font/dotumpro2"
             android:textColor="#838383"/>
 
         <TextView
@@ -290,12 +285,10 @@
             android:text="(선택)"
             android:textColor="#838383"
             android:textSize="9sp"
-            android:fontFamily="@font/dotumpro2"
             android:layout_marginTop="2dp"
             android:layout_marginStart="3dp"
             app:layout_constraintStart_toEndOf="@+id/tx_4_1"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tx_4_2"
@@ -309,7 +302,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             android:text="&#42; 미동의 시 1년 미접속 회원 탈퇴 전환"
             android:textSize="8sp"
-            android:fontFamily="@font/dotumpro2"
             android:textColor="#A3A3A3"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -318,7 +310,7 @@
         android:id="@+id/sign_up_1_btn_next"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="1dp"
         app:layout_constraintStart_toStartOf="@id/guidelineStart"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         app:layout_constraintTop_toBottomOf="@+id/sign_up_1_bottom_sheet_constraint_check_4"
@@ -330,8 +322,8 @@
         android:elevation="0dp"
         android:gravity="center"
         android:background="@drawable/login_btn_login_round_bg"
-        android:paddingTop="12dp"
-        android:paddingBottom="12dp"
+        android:paddingTop="13dp"
+        android:paddingBottom="13dp"
         android:enabled="false" />
 
 

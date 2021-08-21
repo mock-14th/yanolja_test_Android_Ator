@@ -15,7 +15,8 @@
         <androidx.appcompat.widget.Toolbar
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            app:layout_scrollFlags="scroll|enterAlways|snap">
+            app:layout_scrollFlags="scroll|enterAlways|snap"
+            >
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -77,13 +78,16 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:theme="@style/MainHomeTabTheme"
+
             app:tabIndicatorHeight="3dp"
             app:tabTextColor="@color/black"
             app:tabGravity="fill"
             app:tabIndicatorFullWidth="false"
             app:tabMode="fixed"
             app:tabTextAppearance="@style/tab_text"
-            app:tabSelectedTextColor="@color/tabLayoutTab"/>
+            app:tabSelectedTextColor="@color/tabLayoutTab"
+           />
+
         <View
             android:id="@+id/line1"
             android:layout_width="match_parent"

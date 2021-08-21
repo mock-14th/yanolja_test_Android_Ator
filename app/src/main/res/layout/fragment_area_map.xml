@@ -16,7 +16,7 @@
 
     <ImageView
         android:id="@+id/main_area_img_marker"
-        android:layout_width="25dp"
+        android:layout_width="23dp"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -26,12 +26,13 @@
         android:src="@drawable/marker_img"/>
 
     <TextView
+        android:id="@+id/main_area_map_btn_located"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingStart="50dp"
-        android:paddingEnd="50dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="10dp"
+        android:paddingStart="55dp"
+        android:paddingEnd="55dp"
+        android:paddingTop="11dp"
+        android:paddingBottom="11dp"
         android:textStyle="bold"
         android:layout_marginBottom="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,9 +40,43 @@
         app:layout_constraintEnd_toEndOf="parent"
 
         android:text="위치지정 완료"
-        android:textSize="14sp"
+        android:textSize="14.5sp"
         android:textColor="@color/white"
         android:background="@drawable/map_btn_rectangle_red_bg"/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:background="#d9ffffff"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/main_area_img_compass"
+            android:layout_width="15dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/compass_img"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <TextView
+            android:id="@+id/main_area_tx_address"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="서울특별시 영등포구 여의도동"
+            android:textSize="11sp"
+            android:textColor="@color/blackForText"
+            android:layout_marginStart="10dp"
+            app:layout_constraintStart_toEndOf="@+id/main_area_img_compass"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

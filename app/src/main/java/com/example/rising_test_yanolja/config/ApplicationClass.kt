@@ -4,6 +4,7 @@ import android.app.Application
 import android.content.SharedPreferences
 import android.util.Log
 import com.example.rising_test_yanolja.kotlin.config.XAccessTokenInterceptor
+import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -13,6 +14,8 @@ import java.util.concurrent.TimeUnit
 // 앱이 실행될때 1번만 실행이 됩니다.
 class ApplicationClass : Application() {
     val API_URL = "https://dev.lisugangs-ite.shop/"
+    val MAP_API_URL = "https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/"
+
 
     //네이버 아이디와 시크릿 넘버
     object NAVER_MAP_API{
@@ -30,6 +33,7 @@ class ApplicationClass : Application() {
 
         // Retrofit 인스턴스, 앱 실행시 한번만 생성하여 사용합니다.
         lateinit var sRetrofit: Retrofit
+        lateinit var mapRetrofit : Retrofit
     }
 
     // 앱이 처음 생성되는 순간, SP를 새로 만들어주고, 레트로핏 인스턴스를 생성합니다.
@@ -52,12 +56,21 @@ class ApplicationClass : Application() {
             .addNetworkInterceptor(XAccessTokenInterceptor()) // JWT 자동 헤더 전송
             .build()
 
+
+        var gson = GsonBuilder().setLenient().create()
+
         // sRetrofit 이라는 전역변수에 API url, 인터셉터, Gson을 넣어주고 빌드해주는 코드
         // 이 전역변수로 http 요청을 서버로 보내면 됩니다.
         sRetrofit = Retrofit.Builder()
             .baseUrl(API_URL)
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        mapRetrofit = Retrofit.Builder()
+            .baseUrl(MAP_API_URL)
+            .client(client)
+            .addConverterFactory(GsonConverterFactory.create(gson))
             .build()
     }
 }
