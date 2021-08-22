@@ -18,7 +18,7 @@
     <color name="redForText">#d9534f</color>
     <color name="yanoljaPink">#ffff357a</color>
     <color name="tabLayoutTab">#ffca4263</color>
-
+    <color name="statusTrans">#00ffffff</color>
     <color name="redBtnColor">#DA395F</color>
     <color name="redBtnColorClicked">#A1324D</color>
 

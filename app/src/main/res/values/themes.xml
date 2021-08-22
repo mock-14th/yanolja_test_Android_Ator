@@ -18,6 +18,15 @@
     </style>
 
 
+    <!--spaly화면 status 투명하게 변경하기 위한 테마 추가-->
+    <style name="SplashActivity" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+<!--       <item name="android:statusBarColor" tools:targetApi="l">@color/statusTrans</item>-->
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+
 
     <!--login Activity의 editText handler를 위한 style테마 추가한다-->
     <style name="LoginActivity" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
@@ -79,7 +88,6 @@
         </item>                                <!--인디케이터 배경 -->
     </style>
 
-
     <!--tabLayout custom to chip tab Text Size-->
     <style name="chip_tab_text">
         <item name="android:textSize">11sp</item>
@@ -99,6 +107,22 @@
         <item name="android:textSize">12.5sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+
+    <!--my_near_fragment tabLayout text Size-->
+    <style name="my_near_fragment_tabLayout_text">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+
+    <!--커스텀 레이팅바를 위한 style -->
+    <style name="customRatingBar" parent="Widget.AppCompat.RatingBar.Small">
+        <item name="android:progressDrawable">@drawable/custom_ratingbar</item>
+        <item name="minHeight">15dp</item>
+        <item name="maxHeight">15dp</item>
+    </style>
+
 
 
 

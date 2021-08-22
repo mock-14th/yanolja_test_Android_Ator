@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:layout_marginEnd="10dp"
+    android:layout_marginBottom="20dp"
+    android:background="@drawable/rectangle_round_stroke_gray_no_pressed">
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/item_main_my_near_product_img"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:src="@drawable/product_list_img"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius_top_left="5dp"
+        app:riv_corner_radius_top_right="5dp" />
+
+
+    <TextView
+        android:id="@+id/item_main_my_near_product_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:text="대치 컬리넌"
+
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_main_my_near_product_img" />
+
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/item_main_my_near_product_img_rating"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:rating="2.5"
+        android:stepSize="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_main_my_near_product_name" />
+
+    <TextView
+        android:id="@+id/item_main_my_near_product_tx_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="4.3"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/item_main_my_near_product_img_rating"
+        app:layout_constraintTop_toBottomOf="@+id/item_main_my_near_product_name" />
+
+    <TextView
+        android:id="@+id/item_main_my_near_product_tx_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="(4,428)"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@+id/item_main_my_near_product_tx_rating"
+        app:layout_constraintTop_toBottomOf="@+id/item_main_my_near_product_name" />
+
+
+    <TextView
+        android:id="@+id/item_main_my_near_product_tx_catogry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="모텔"
+        android:textColor="#858585"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@+id/item_main_my_near_product_tx_review"
+        app:layout_constraintTop_toBottomOf="@+id/item_main_my_near_product_name" />
+
+    <TextView
+        android:id="@+id/item_main_my_near_product_tx_first_come"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/lefttop_leftbottom_round_background_red"
+        android:paddingStart="5dp"
+        android:paddingTop="2dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="2dp"
+        android:text="선착순"
+        android:textColor="@color/white"
+        android:textSize="8.5sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/item_main_my_near_product_img_rating" />
+
+
+    <TextView
+        android:id="@+id/item_main_my_near_product_tx_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/righttop_rightbottom_round_stroke_red"
+        android:paddingStart="5dp"
+        android:paddingTop="2dp"
+        android:paddingEnd="5dp"
+        android:paddingBottom="2dp"
+        android:text="5천원 마감임박"
+        android:textColor="@color/redBtnColor"
+        android:textSize="8.5sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/item_main_my_near_product_linear_halfday"
+        app:layout_constraintStart_toEndOf="@+id/item_main_my_near_product_tx_first_come"
+        app:layout_constraintTop_toBottomOf="@+id/item_main_my_near_product_img_rating" />
+
+
+
+
+    <!--대실 가격 정보 레이아웃-->
+    <LinearLayout
+        android:id="@+id/item_main_my_near_product_linear_halfday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right|center_vertical"
+        android:paddingTop="15dp"
+        android:paddingBottom="2dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/item_main_my_near_product_linear_oneday"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="대실"
+            android:textColor="@color/black"
+            android:textSize="11sp"/>
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="1dp"
+            android:layout_height="7dp"
+            android:layout_marginEnd="5dp"
+            android:background="#B6B6B6" />
+
+
+        <TextView
+            android:id="@+id/item_main_my_near_product_tx_halfday_from_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="4시간"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+
+        <TextView
+            android:id="@+id/item_main_my_near_product_tx_halfday_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:text="30,000"
+            android:textColor="@color/black"
+            android:textSize="16.5sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/item_main_my_near_product_tx_halfday_won"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="원"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+
+
+
+
+
+    <!--숙박 가격 정보 레이아웃-->
+    <LinearLayout
+        android:id="@+id/item_main_my_near_product_linear_oneday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right|center_vertical"
+        android:paddingTop="2dp"
+        android:paddingBottom="10dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/item_main_my_near_product_layout_event"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="숙박"
+            android:textColor="@color/black"
+            android:textSize="11sp"/>
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="1dp"
+            android:layout_height="7dp"
+            android:layout_marginEnd="5dp"
+            android:background="#B6B6B6" />
+
+
+        <TextView
+            android:id="@+id/item_main_my_near_product_tx_oneday_from_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="21:00부터"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+
+        <TextView
+            android:id="@+id/item_main_my_near_product_tx_oneday_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:text="70,000"
+            android:textColor="@color/black"
+            android:textSize="16.5sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/item_main_my_near_product_tx_won_oneday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="원"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/item_main_my_near_product_layout_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/bottom_stroke_round_bg_gray"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <TextView
+            android:id="@+id/item_main_my_near_product_tx_event"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="6dp"
+            android:text="EVENT"
+            android:textColor="@color/blackForText"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/item_main_my_near_product_tx_event_ment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="6dp"
+            android:text="청결과 위생을 철저히합니다~!"
+            android:textColor="@color/tabTextGray"
+            android:textSize="11sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/item_main_my_near_product_tx_event"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

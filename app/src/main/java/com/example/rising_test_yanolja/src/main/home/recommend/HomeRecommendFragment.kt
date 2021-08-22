@@ -234,6 +234,7 @@ class HomeRecommendFragment : BaseFragment<FragmentHomeRecommendBinding>(
             tab.requestLayout()
         }
 
+
         //weekly_top_viewPager2 swipe할 때 부모 뷰페이저 swipe막는 코드
         binding.mainHomeRecommendWeeklyViewPager2.getChildAt(0).setOnTouchListener { v, event ->
             when(event.action){
