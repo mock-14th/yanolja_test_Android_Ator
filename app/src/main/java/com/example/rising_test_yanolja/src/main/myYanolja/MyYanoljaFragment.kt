@@ -21,6 +21,7 @@ class MyYanoljaFragment : BaseFragment<FragmentMyYanoljaBinding>(FragmentMyYanol
 
         JWT = sSharedPreferences.getString("X_ACCESS_TOKEN","").toString()
 
+        //JWT토큰 확인하고 있다면, 해당 토큰의 정보를 서버에서 불러온다.
         if(!JWT.isEmpty())
             MyYanoljaService(this).tryGetMyYanoljaInfo(JWT)
     }
@@ -28,6 +29,7 @@ class MyYanoljaFragment : BaseFragment<FragmentMyYanoljaBinding>(FragmentMyYanol
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        //JWT의 여부를 물어보고 만약 JWTW가 있다면 로그인 했을 경우의 화면을 visible해주고 비어있다면, 로그인 할 수 있는 화면의 클릭 리스너를 달아준다.
         if (JWT.isEmpty()){
             binding.mainMyYanoljaBtnLoginBefore.setOnClickListener {
                 var intent = Intent(context, LoginActivity::class.java)

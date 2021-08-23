@@ -29,8 +29,7 @@
         <activity android:name=".src.main.MainActivity">
         </activity>
         <activity android:name=".src.setting.SettingActivity"/>
-        <activity android:name=".src.productInfo.ProductInfoActivity"
-            android:theme="@style/SplashActivity">
+        <activity android:name=".src.productInfo.ProductInfoActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

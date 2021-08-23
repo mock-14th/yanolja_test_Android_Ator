@@ -21,7 +21,6 @@
     <!--spaly화면 status 투명하게 변경하기 위한 테마 추가-->
     <style name="SplashActivity" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="android:windowTranslucentStatus">true</item>
-<!--       <item name="android:statusBarColor" tools:targetApi="l">@color/statusTrans</item>-->
         <item name="android:windowLightStatusBar">true</item>
         <item name="windowNoTitle">true</item>
     </style>
