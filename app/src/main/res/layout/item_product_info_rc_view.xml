@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/button_clicked_bg"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="15dp">
+    android:paddingBottom="15dp"
+    android:layout_height="wrap_content">
 
 
     <View
@@ -16,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent"/>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/item_product_info_rc_img"
+        android:id="@+id/item_product_info_rc_cardView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
@@ -25,6 +26,7 @@
         app:cardCornerRadius="5dp">
 
         <ImageView
+            android:id="@+id/item_product_info_rc_img"
             android:layout_width="130dp"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"
@@ -43,7 +45,7 @@
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
         app:layout_constraintTop_toBottomOf="@+id/line"
-        app:layout_constraintStart_toEndOf="@+id/item_product_info_rc_img"/>
+        app:layout_constraintStart_toEndOf="@+id/item_product_info_rc_cardView"/>
 
     <TextView
         android:id="@+id/item_product_info_rc_tx_wal"
@@ -55,7 +57,7 @@
         android:layout_marginTop="5dp"
         android:layout_marginStart="10dp"
 
-        app:layout_constraintStart_toEndOf="@+id/item_product_info_rc_img"
+        app:layout_constraintStart_toEndOf="@+id/item_product_info_rc_cardView"
         app:layout_constraintTop_toBottomOf="@+id/item_product_info_rc_tx_room_name"/>
 
 
@@ -67,7 +69,7 @@
         android:textSize="11sp"
         android:layout_marginStart="10dp"
 
-        app:layout_constraintStart_toEndOf="@+id/item_product_info_rc_img"
+        app:layout_constraintStart_toEndOf="@+id/item_product_info_rc_cardView"
         app:layout_constraintTop_toBottomOf="@+id/item_product_info_rc_tx_wal" />
 
 
@@ -81,7 +83,7 @@
         android:layout_marginTop="15dp"
         android:layout_marginStart="10dp"
 
-        app:layout_constraintStart_toEndOf="@+id/item_product_info_rc_img"
+        app:layout_constraintStart_toEndOf="@+id/item_product_info_rc_cardView"
         app:layout_constraintTop_toBottomOf="@+id/item_product_info_rc_tx_personnel" />
 
     <TextView
@@ -105,11 +107,11 @@
         android:textColor="@color/black"
         android:layout_marginStart="10dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintStart_toEndOf="@+id/item_product_info_rc_img"
+        app:layout_constraintStart_toEndOf="@+id/item_product_info_rc_cardView"
         app:layout_constraintTop_toBottomOf="@+id/item_product_info_rc_tx_half_day_price" />
 
     <TextView
-        android:id="@+id/item_product_info_rc_tx_one_day"
+        android:id="@+id/item_product_info_rc_tx_time_one_day"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="19:00 부터"
@@ -153,7 +155,7 @@
         android:text="판매가"
         android:textSize="10sp"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-        app:layout_constraintTop_toTopOf="@+id/item_product_info_rc_tx_one_day" />
+        app:layout_constraintTop_toTopOf="@+id/item_product_info_rc_tx_time_one_day" />
 
 
     <TextView

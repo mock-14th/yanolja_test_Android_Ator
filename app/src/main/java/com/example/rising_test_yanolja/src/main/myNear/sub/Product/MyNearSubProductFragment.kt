@@ -1,36 +1,57 @@
 package com.example.rising_test_yanolja.src.main.myNear.sub.Product
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.rising_test_yanolja.R
 import com.example.rising_test_yanolja.config.BaseFragment
 import com.example.rising_test_yanolja.databinding.FragmentMyNearSubProductListBinding
 import com.example.rising_test_yanolja.src.main.home.recommend.HomeRecommendTodaySpecialCostRcViewAdapter
+import com.example.rising_test_yanolja.src.main.myNear.sub.Product.models.MyNearSubProductResponse
+import com.example.rising_test_yanolja.src.main.myNear.sub.Product.models.ResultMyNearProduct
 
-class MyNearSubProductFragment : BaseFragment<FragmentMyNearSubProductListBinding>(FragmentMyNearSubProductListBinding::bind, R.layout.fragment_my_near_sub_product_list) {
+class MyNearSubProductFragment : BaseFragment<FragmentMyNearSubProductListBinding>(FragmentMyNearSubProductListBinding::bind, R.layout.fragment_my_near_sub_product_list),MyNearSubProductFragmentView {
+
+    var productList = ArrayList<ResultMyNearProduct>()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        var productList = ArrayList<String>()
-        productList.add("대치 컬리너")
-        productList.add("2번")
-        productList.add("3번")
-        productList.add("4번")
-        productList.add("5번")
-        productList.add("6번")
-        productList.add("7번")
-        productList.add("8번")
-        productList.add("9번")
-        productList.add("10번")
+        var handler = Handler(Looper.getMainLooper())
+
+        Thread{
+            handler.post{
+                showLoadingDialog(requireContext())
+                MyNearSubProductService(this).tryGetMotelsList()
+            }
+        }.start()
 
 
-        //today_special_cost_rcView 어댑터 장착
-        binding.mainMyNearSubProductRcView.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.mainMyNearSubProductRcView.adapter = MyNearSubProductRcAdapter(productList)
+    }
 
+    //통신 성공
+    override fun onGetMotelsListSuccess(response: MyNearSubProductResponse) {
+        if (response.isSuccess){
+            for (i in response.result){
+                productList.add(i)
+            }
+            //today_special_cost_rcView 어댑터 장착
+            binding.mainMyNearSubProductRcView.layoutManager =
+                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+            binding.mainMyNearSubProductRcView.adapter = MyNearSubProductRcAdapter(productList)
+        }
+        dismissLoadingDialog()
+    }
 
+    //통신 오류
+    override fun onGetMotelsListFailure(message: String) {
+        showCustomToast("통신 실패")
     }
 }

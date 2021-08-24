@@ -1,6 +1,8 @@
 package com.example.rising_test_yanolja.src.signUp
 
 import com.example.rising_test_yanolja.config.ApplicationClass
+import com.example.rising_test_yanolja.config.BaseResponse
+import com.example.rising_test_yanolja.src.signUp.models.GetEmailCheckRequest
 import com.example.rising_test_yanolja.src.signUp.models.PostSignUpRequest
 import com.example.rising_test_yanolja.src.signUp.models.SignUpResponse
 import retrofit2.Call

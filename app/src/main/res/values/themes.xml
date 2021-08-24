@@ -8,7 +8,7 @@
         <item name="windowNoTitle">true</item>
 
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondary">#FFC107</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
@@ -115,12 +115,7 @@
     </style>
 
 
-    <!--커스텀 레이팅바를 위한 style -->
-    <style name="customRatingBar" parent="Widget.AppCompat.RatingBar.Small">
-        <item name="android:progressDrawable">@drawable/custom_ratingbar</item>
-        <item name="minHeight">15dp</item>
-        <item name="maxHeight">15dp</item>
-    </style>
+
 
 
 

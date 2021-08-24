@@ -13,16 +13,20 @@ import androidx.core.app.ActivityCompat
 import androidx.core.widget.addTextChangedListener
 import com.example.rising_test_yanolja.R
 import com.example.rising_test_yanolja.config.BaseActivity
+import com.example.rising_test_yanolja.config.BaseResponse
 import com.example.rising_test_yanolja.databinding.ActivitySignUp1Binding
+import com.example.rising_test_yanolja.src.signUp.models.GetEmailCheckRequest
+import com.example.rising_test_yanolja.src.signUp.models.SignUpResponse
 import java.util.regex.Matcher
 import java.util.regex.Pattern
 
-class SignUpActivity1 : BaseActivity<ActivitySignUp1Binding>(ActivitySignUp1Binding::inflate) {
+class SignUpActivity1 : BaseActivity<ActivitySignUp1Binding>(ActivitySignUp1Binding::inflate),SignUpActivity1View {
 
 
     private var isWronPwd = false
     private var isPwdToggle = false
     private var isPwdCheckToggle = false
+    private var isDuplicateEmail = false
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -66,6 +70,9 @@ class SignUpActivity1 : BaseActivity<ActivitySignUp1Binding>(ActivitySignUp1Bind
             }
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                binding.signUpTxDuplicWronGuide.visibility=View.INVISIBLE
+                binding.signUpTextInputLayoutId.error=""
+
                 var inputId = binding.signUpEdtId.text.toString()
                 if(!inputId.isEmpty())
                     binding.signUpBtnIdReset.visibility=View.VISIBLE
@@ -94,21 +101,8 @@ class SignUpActivity1 : BaseActivity<ActivitySignUp1Binding>(ActivitySignUp1Bind
 
         //다음 버튼 클릭 리스너
         binding.signUpBtnNext.setOnClickListener {
-            binding.signUpTextInputLayoutPwd.visibility=View.VISIBLE
-            binding.signUpTextInputLayoutPwdCheck.visibility=View.VISIBLE
-            binding.signUpBtnOk.visibility=View.VISIBLE
-            binding.signUpBtnNext.visibility=View.INVISIBLE
-
-
-            //다음 버튼 누르면 edt pwd로 강제 포커싱을 준다.
-            binding.signUpEdtPwd.post(Runnable {
-                binding.signUpEdtPwd.setFocusableInTouchMode(true)
-                binding.signUpEdtPwd.requestFocus()
-                val imm: InputMethodManager =
-                    getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-                imm.showSoftInput(binding.signUpEdtPwd, 0)
-            })
-
+            var id = binding.signUpEdtId.text.toString()
+            SignUp1Service(this).tryGetEmailCheck(GetEmailCheckRequest(email=id))
         }
 
 
@@ -317,11 +311,44 @@ class SignUpActivity1 : BaseActivity<ActivitySignUp1Binding>(ActivitySignUp1Bind
         }
     }
 
+
+    //입력 받은 데이터가 이메일 형식인지 확인하는 함수
     fun isEmailValid(email: String?): Boolean {
         val expression = "^[\\w\\.-]+@([\\w\\-]+\\.)+[A-Z]{2,4}$"
         val pattern: Pattern = Pattern.compile(expression, Pattern.CASE_INSENSITIVE)
         val matcher: Matcher = pattern.matcher(email)
         return matcher.matches()
     }
+
+
+    //이메일 중복 검사 통신 성공
+    override fun onGetCheckEmailSuccess(response: BaseResponse) {
+        if(response.isSuccess){
+            binding.signUpTextInputLayoutPwd.visibility=View.VISIBLE
+            binding.signUpTextInputLayoutPwdCheck.visibility=View.VISIBLE
+            binding.signUpBtnOk.visibility=View.VISIBLE
+            binding.signUpBtnNext.visibility=View.INVISIBLE
+
+
+            //다음 버튼 누르면 edt pwd로 강제 포커싱을 준다.
+            binding.signUpEdtPwd.post(Runnable {
+                binding.signUpEdtPwd.setFocusableInTouchMode(true)
+                binding.signUpEdtPwd.requestFocus()
+                val imm: InputMethodManager =
+                    getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.showSoftInput(binding.signUpEdtPwd, 0)
+            })
+        }else{
+            binding.signUpTextInputLayoutId.error=" "
+            binding.signUpTxDuplicWronGuide.visibility=View.VISIBLE
+        }
+    }
+
+
+    //이메일 중복 검사 통신 실패
+    override fun onGetCheckEmailFailure(message: String) {
+        Toast.makeText(this,"통신 실패",Toast.LENGTH_SHORT).show()
+    }
+
 
 }

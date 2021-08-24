@@ -66,6 +66,7 @@
                     android:src="@drawable/rating_img" />
 
                 <TextView
+                    android:id="@+id/product_info_tx_rating"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
@@ -91,6 +92,7 @@
                     android:textSize="13sp" />
 
                 <TextView
+                    android:id="@+id/product_info_tx_review_count_main"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
@@ -372,18 +374,18 @@
                 app:layout_constraintTop_toBottomOf="@+id/product_info_introduce" />
 
 
+            <!--편의시설 및 서비스-->
             <View
                 android:id="@+id/line4"
                 android:layout_width="0dp"
                 android:layout_height="1dp"
-                android:layout_marginTop="15dp"
+                android:layout_marginTop="8dp"
                 android:background="#F4F4F4"
                 app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@id/guidelineStart"
                 app:layout_constraintTop_toBottomOf="@+id/product_info_tx_introduce" />
 
-
-            <!--편의시설 및 서비스-->
             <TextView
                 android:id="@+id/product_info_service"
                 android:layout_width="wrap_content"
@@ -588,7 +590,6 @@
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/guidelineEnd"
                 app:layout_constraintStart_toStartOf="@id/guidelineStart"
                 app:layout_constraintTop_toBottomOf="@+id/line5" />
 
@@ -598,12 +599,12 @@
                 android:id="@+id/product_info_rule"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="1dp"
                 android:layout_marginTop="15dp"
                 android:text="기본규정"
                 android:textColor="#636363"
                 android:textSize="14sp"
                 android:textStyle="bold"
-                android:layout_marginStart="1dp"
                 app:layout_constraintStart_toStartOf="@id/guidelineStart"
                 app:layout_constraintTop_toBottomOf="@+id/product_info_useInformation" />
 
@@ -613,21 +614,21 @@
                 android:id="@+id/product_info_linear_rule"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center_vertical"
                 android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
                 android:paddingStart="5dp"
-                app:layout_constraintTop_toBottomOf="@+id/product_info_rule"
                 app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
-                app:layout_constraintStart_toStartOf="@id/guidelineStart">
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/product_info_rule">
 
                 <!--middledot-->
                 <ImageView
                     android:layout_width="5dp"
                     android:layout_height="wrap_content"
-                    android:adjustViewBounds="true"
                     android:layout_marginEnd="5dp"
-                    android:src="@drawable/middledot_img"/>
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/middledot_img" />
 
                 <TextView
                     android:id="@+id/product_info_rule_content"
@@ -637,8 +638,6 @@
                     android:textColor="#636363"
                     android:textSize="13sp" />
             </LinearLayout>
-
-
 
 
             <View
@@ -652,11 +651,648 @@
                 app:layout_constraintTop_toBottomOf="@+id/product_info_linear_rule" />
 
 
+            <!--네이버 지도 일단 사진으로 넣어둠-->
+            <ImageView
+                android:id="@+id/product_info_fragment_map"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/naver_map_img"
+                app:layout_constraintEnd_toStartOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/line6" />
+
+
+            <ImageView
+                android:id="@+id/product_info_img_gray_marker"
+                android:layout_width="8.5dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="17dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/area_img"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/product_info_fragment_map" />
+
+            <!--모텔 주소 정보-->
+            <TextView
+                android:id="@+id/product_info_tx_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="15dp"
+                android:text="서울 강남구 봉은사로37길 6 (논현동)"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                app:layout_constraintStart_toEndOf="@id/product_info_img_gray_marker"
+                app:layout_constraintTop_toBottomOf="@+id/product_info_fragment_map" />
+
+
+            <!--주소복사 버튼-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="주소복사"
+                android:textColor="@color/look_all_btn_text_color"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintTop_toBottomOf="@+id/product_info_fragment_map" />
+
+
+            <!--찾아오시는 길-->
+            <TextView
+                android:id="@+id/product_info_way_to_find"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="찾아오시는 길"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/product_info_img_gray_marker" />
+
+
+            <!--찾아오시는 길 내용-->
+            <LinearLayout
+                android:id="@+id/product_info_linear_way_to_find"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="5dp"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/product_info_way_to_find">
+
+                <!--middledot-->
+                <ImageView
+                    android:layout_width="5dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/middledot_img" />
+
+                <TextView
+                    android:id="@+id/product_info_way_to_find_content"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="경복아파트 사거리에서 도보 5분"
+                    android:textColor="#636363"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/line7"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="#F4F4F4"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/product_info_linear_way_to_find" />
+
+
+            <!--판매자 정보 버튼-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/product_info_btn_seller_info"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/line7">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="판매자 정보"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+
+                <ImageView
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/right3_img"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View
+                android:id="@+id/line8"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:background="#F3F3F3"
+                app:layout_constraintTop_toBottomOf="@+id/product_info_btn_seller_info" />
+
+            <View
+                android:id="@+id/line12"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#E4E4E4"
+                app:layout_constraintTop_toBottomOf="@+id/product_info_btn_seller_info" />
+
+            <!--이 숙소 주변 놀거리-->
+            <TextView
+                android:id="@+id/product_info_play_things"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="이 숙소 주변 놀거리"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/line8" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="전체보기"
+                android:textColor="@color/look_all_btn_text_color"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintTop_toBottomOf="@+id/line8" />
+
+
+            <!--이 숙소 주변 놀거리 rcview-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/product_info_recycler_view_play_things"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:clipToPadding="false"
+                android:paddingStart="10dp"
+                app:layout_constraintTop_toBottomOf="@+id/product_info_play_things" />
+
+
+            <View
+                android:id="@+id/line9"
+                android:layout_width="match_parent"
+                android:layout_height="10dp"
+                android:layout_marginTop="20dp"
+                android:background="#F3F3F3"
+                app:layout_constraintTop_toBottomOf="@+id/product_info_recycler_view_play_things" />
+
+
+            <View
+                android:id="@+id/line11"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="#E4E4E4"
+                app:layout_constraintTop_toBottomOf="@+id/product_info_recycler_view_play_things" />
+
+
+            <!--후기 -->
+            <TextView
+                android:id="@+id/product_info_tx_review"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="후기"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/line9" />
+
+
+            <TextView
+                android:id="@+id/product_info_tx_review_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:text="(2,432개)"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toEndOf="@+id/product_info_tx_review"
+                app:layout_constraintTop_toBottomOf="@+id/line9" />
+
+            <TextView
+                android:id="@+id/product_info_btn_review_all_see"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="전체보기"
+                android:textColor="@color/look_all_btn_text_color"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintTop_toBottomOf="@+id/line9" />
+
+            <!--별점 나올 레이아웃-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/product_info_constraint_rating"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/product_info_tx_review">
+
+                <ImageView
+                    android:id="@+id/big_rating_img"
+                    android:layout_width="27dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/rating_big_img"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_info_tx_big_rating"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <!--별점-->
+                <TextView
+                    android:id="@+id/product_info_tx_big_rating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="20dp"
+                    android:text="4.6"
+                    android:textColor="@color/black"
+                    android:textSize="37sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/big_rating_img"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed" />
+
+                <TextView
+                    android:id="@+id/rating_tx_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="3dp"
+                    android:layout_marginBottom="5dp"
+                    android:text="/5"
+                    android:textSize="17sp"
+                    app:layout_constraintBottom_toBottomOf="@+id/product_info_tx_big_rating"
+                    app:layout_constraintStart_toEndOf="@+id/product_info_tx_big_rating" />
+
+                <TextView
+                    android:id="@+id/tx"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:text="최근 6개월 누적 평점"
+                    android:textSize="11sp"
+                    app:layout_constraintEnd_toEndOf="@+id/rating_tx_total"
+                    app:layout_constraintStart_toStartOf="@+id/big_rating_img"
+                    app:layout_constraintTop_toBottomOf="@+id/big_rating_img" />
+
+
+                <!--친절도 레이아웃-->
+                <LinearLayout
+                    android:id="@+id/product_info_linear_kind"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/product_info_linear_clean"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_chainStyle="packed">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="3dp"
+                        android:text="친절도"
+                        android:textColor="@color/blackForText"
+                        android:textSize="11sp" />
+
+                    <ProgressBar
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="65dp"
+                        android:layout_height="6dp"
+                        android:layout_marginEnd="3dp"
+                        android:max="500"
+                        android:progress="460"
+                        android:progressDrawable="@drawable/rating_progressbar_custom"
+                        app:layout_constraintEnd_toStartOf="@+id/product_info_tx_rating_kind" />
+
+                    <TextView
+                        android:id="@+id/product_info_tx_rating_kind"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4.6"
+                        android:textColor="@color/black"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
+
+
+                <!--청결도 레이아웃-->
+                <LinearLayout
+                    android:id="@+id/product_info_linear_clean"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/product_info_linear_convenient"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/product_info_linear_kind">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="3dp"
+                        android:text="청결도"
+                        android:textColor="@color/blackForText"
+                        android:textSize="11sp" />
+
+                    <ProgressBar
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="65dp"
+                        android:layout_height="6dp"
+                        android:layout_marginEnd="3dp"
+                        android:max="500"
+                        android:progress="460"
+                        android:progressDrawable="@drawable/rating_progressbar_custom"
+                        app:layout_constraintEnd_toStartOf="@+id/product_info_tx_rating_kind" />
+
+                    <TextView
+                        android:id="@+id/product_info_tx_rating_clean"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4.6"
+                        android:textColor="@color/black"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
+
+
+                <!--편의성 레이아웃-->
+                <LinearLayout
+                    android:id="@+id/product_info_linear_convenient"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@+id/product_info_linear_item_satisfaction"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/product_info_linear_clean">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="3dp"
+                        android:text="편의성"
+                        android:textColor="@color/blackForText"
+                        android:textSize="11sp" />
+
+                    <ProgressBar
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="65dp"
+                        android:layout_height="6dp"
+                        android:layout_marginEnd="3dp"
+                        android:max="500"
+                        android:progress="460"
+                        android:progressDrawable="@drawable/rating_progressbar_custom"
+                        app:layout_constraintEnd_toStartOf="@+id/product_info_tx_rating_kind" />
+
+                    <TextView
+                        android:id="@+id/product_info_tx_rating_convenient"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4.6"
+                        android:textColor="@color/black"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
+
+
+                <!--비품 만족도 레이아웃-->
+                <LinearLayout
+                    android:id="@+id/product_info_linear_item_satisfaction"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/product_info_linear_convenient">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="3dp"
+                        android:text="비품만족도"
+                        android:textColor="@color/blackForText"
+                        android:textSize="11sp" />
+
+                    <ProgressBar
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="65dp"
+                        android:layout_height="6dp"
+                        android:layout_marginEnd="3dp"
+                        android:max="500"
+                        android:progress="460"
+                        android:progressDrawable="@drawable/rating_progressbar_custom"
+                        app:layout_constraintEnd_toStartOf="@+id/product_info_tx_rating_kind" />
+
+                    <TextView
+                        android:id="@+id/product_info_tx_rating_item_satisfaction"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="4.6"
+                        android:textColor="@color/black"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </LinearLayout>
+
+
+                <ImageView
+                    android:id="@+id/exclamtaion_mark_img"
+                    android:layout_width="11dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6.5dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/exclamation_mark_img"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/product_info_linear_item_satisfaction" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4.5dp"
+                    android:layout_marginEnd="2dp"
+                    android:text="후기 수 및 평점 기준 안내"
+                    android:textColor="@color/blackForText"
+                    android:textSize="10sp"
+                    app:layout_constraintEnd_toStartOf="@+id/exclamtaion_mark_img"
+                    app:layout_constraintTop_toBottomOf="@+id/product_info_linear_item_satisfaction" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View
+                android:id="@+id/line10"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="15dp"
+                android:background="#F4F4F4"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/product_info_constraint_rating" />
+
+
+            <!--후기 글 보이는 리사이클러 뷰-->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/product_info_recycler_view_review"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:nestedScrollingEnabled="false"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/line10" />
 
 
 
+            <!--전체 후기 보기 btn-->
+            <LinearLayout
+                android:id="@+id/product_info_btn_review_all_see2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:paddingTop="12dp"
+                android:paddingBottom="12dp"
+                app:layout_constraintTop_toBottomOf="@+id/product_info_recycler_view_review">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="전체 후기 보기"
+                    android:textColor="@color/look_all_btn_text_color"
+                    android:textSize="14sp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="후기  "
+                        android:textColor="@color/blackForText"
+                        android:textSize="11sp" />
+
+                    <TextView
+                        android:id="@+id/product_info_review_count_last"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="605개"
+                        android:textSize="11sp"
+                        android:textColor="@color/blackForText"
+                        android:textStyle="bold" />
+
+                    <View
+                        android:id="@+id/line14"
+                        android:layout_width="1dp"
+                        android:layout_height="10dp"
+                        android:layout_marginTop="3dp"
+                        android:layout_marginStart="3dp"
+                        android:background="#D8D8D8" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
+                        android:text="숙소 답변  "
+                        android:textSize="11sp"
+                        android:textColor="@color/blackForText" />
+
+                    <TextView
+                        android:id="@+id/product_info_review_answer"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(600+)"
+                        android:textColor="@color/blackForText"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
 
 
+            <View
+                android:id="@+id/line15"
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="#F4F4F4"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintTop_toBottomOf="@+id/product_info_btn_review_all_see2" />
+
+            <!--마지막 법적 고지-->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:orientation="vertical"
+                android:paddingBottom="50dp"
+                app:layout_constraintTop_toBottomOf="@+id/line15"
+                app:layout_constraintStart_toStartOf="@id/guidelineStart"
+                app:layout_constraintEnd_toEndOf="@id/guidelineEnd">
+
+                <ImageView
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/my_yanolja_light_gray_img"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:text="객실사진의 경우 객실별 대표사진으로 실제 배정받는 객실과 상이할 수 있습니다."
+                    android:textColor="#CDCDCD"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="(주) 야놀자는 통신판매 중개자로서 통신판매의 당사자가 아니며 상품의 예약, 이용\n및 환불 등과 관련한 의무와 책임은 각 판매자에게 있습니다."
+                    android:textColor="#CDCDCD"
+                    android:textSize="10sp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="숙박업소는 법적으로 청소년 고용과 혼숙이 금지되어 있습니다. 따라서 청소년\n혼숙으로 인한 입실거부는 정당하며, 이에 대한 법적 제재는 이용 당사자가 책임져야\n합니다."
+                    android:textColor="#CDCDCD"
+                    android:textSize="10sp"/>
+            </LinearLayout>
 
 
 
@@ -774,8 +1410,8 @@
                 <ImageView
                     android:layout_width="12dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
                     android:adjustViewBounds="true"
-
                     android:src="@drawable/left_white_img"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
