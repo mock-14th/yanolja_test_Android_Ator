@@ -1,14 +1,18 @@
 package com.example.rising_test_yanolja.src.productInfo
 
+import android.content.Intent
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.rising_test_yanolja.databinding.ItemProductInfoRcViewBinding
 import com.example.rising_test_yanolja.src.productInfo.models.Room
+import com.example.rising_test_yanolja.src.roomInfo.RoomInfoActivity
 import java.text.DecimalFormat
 
-class ProductInfoRoomRcAdapter (private val roomList : ArrayList<Room>) : RecyclerView.Adapter<ProductInfoRoomRcAdapter.ViewHolder>() {
+class ProductInfoRoomRcAdapter (private val roomList : ArrayList<Room>,private val startDate:String,private val endDate:String,private val brandID:Int)
+    : RecyclerView.Adapter<ProductInfoRoomRcAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductInfoRoomRcAdapter.ViewHolder {
         val binding =
             ItemProductInfoRcViewBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -32,12 +36,16 @@ class ProductInfoRoomRcAdapter (private val roomList : ArrayList<Room>) : Recycl
 
             if(data.halfDayPrice==null || data.halfDayPrice=="예약마감"){
                 binding.itemProductInfoRcTxHalfDayPrice.text="예약마감"
+                binding.itemProductInfoRcTxHalfDayPrice.setTextColor(Color.parseColor("#4a4a4a"))
+                binding.itemProductInfoRcTxHalfDayPrice.textSize=12f
             }else{
                 binding.itemProductInfoRcTxHalfDayPrice.text= formatter.format(data.halfDayPrice.toInt())
             }
 
             if(data.oneDayPrice==null || data.oneDayPrice=="예약마감"){
                 binding.itemProductInfoRcTxOneDayPrice.text="예약마감"
+                binding.itemProductInfoRcTxOneDayPrice.setTextColor(Color.parseColor("#4a4a4a"))
+                binding.itemProductInfoRcTxOneDayPrice.textSize=12f
             }else{
                 binding.itemProductInfoRcTxOneDayPrice.text=formatter.format(data.oneDayPrice.toInt())
             }
@@ -46,7 +54,12 @@ class ProductInfoRoomRcAdapter (private val roomList : ArrayList<Room>) : Recycl
 
 
             binding.root.setOnClickListener {
-
+                var intent = Intent(binding.root.context,RoomInfoActivity::class.java)
+                intent.putExtra("startDate",startDate)
+                intent.putExtra("endDate",endDate)
+                intent.putExtra("roomType",data.roomType)
+                intent.putExtra("brandID",brandID)
+                binding.root.context.startActivity(intent)
             }
         }
     }

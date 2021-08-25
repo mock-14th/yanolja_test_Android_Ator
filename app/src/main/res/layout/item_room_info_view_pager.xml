@@ -7,13 +7,15 @@
     <ImageView
         android:id="@+id/item_product_thumnail_view_pager_img"
         android:layout_width="wrap_content"
-        android:layout_height="330dp"
+        android:layout_height="300dp"
         android:adjustViewBounds="true"
         android:scaleType="centerCrop"
         android:src="@drawable/product_thumnail_img1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

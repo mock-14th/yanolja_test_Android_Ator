@@ -1,11 +1,14 @@
 package com.example.rising_test_yanolja.src.main.myNear.sub.Product
 
 import android.content.Intent
+import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.rising_test_yanolja.R
 import com.example.rising_test_yanolja.databinding.ItemMyNearProductRcviewBinding
 import com.example.rising_test_yanolja.src.main.myNear.sub.Product.models.ResultMyNearProduct
 import com.example.rising_test_yanolja.src.productInfo.ProductInfoActivity
@@ -54,6 +57,8 @@ class MyNearSubProductRcAdapter(private var productList : ArrayList<ResultMyNear
                 binding.itemMainMyNearProductTxOnedayPrice.text = data.oneDay
                 binding.itemMainMyNearProductTxWonOneday.visibility= View.GONE
                 binding.itemMainMyNearProductTxOnedayFromTime.visibility=View.GONE
+                binding.itemMainMyNearProductTxOnedayPrice.setTextColor(Color.parseColor("#4a4a4a"))
+                binding.itemMainMyNearProductTxOnedayPrice.textSize=12f
             } else
                 binding.itemMainMyNearProductTxOnedayPrice.text=formatter.format(data.oneDay.toInt())
 

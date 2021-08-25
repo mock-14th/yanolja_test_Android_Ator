@@ -10,5 +10,9 @@ data class BrandInfo(
     @SerializedName("주소") val address: String,
     @SerializedName("카테고리") val category: String,
     @SerializedName("평균별점") val averageRating: String,
-    @SerializedName("후기개수") val reviewCount: Int
+    @SerializedName("후기개수") val reviewCount: Int,
+    @SerializedName("친절도") val kindRating : String,
+    @SerializedName("청결도") val cleanRating : String,
+    @SerializedName("편의성") val easeRating : String,
+    @SerializedName("비품만족도") val toolRating : String
 )

@@ -28,8 +28,9 @@
         <ImageView
             android:id="@+id/item_product_info_rc_img"
             android:layout_width="130dp"
-            android:layout_height="wrap_content"
+            android:layout_height="155dp"
             android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
             android:src="@drawable/product_rc_img" />
     </androidx.cardview.widget.CardView>
 

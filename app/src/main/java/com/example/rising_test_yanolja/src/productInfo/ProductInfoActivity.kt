@@ -25,6 +25,8 @@ class ProductInfoActivity :
     private var playthingsList = ArrayList<PlayThingsInfo>()
     private var reviewList = ArrayList<Review>()
     private var brandID = 0
+    private var startDate = "2021-08-22"
+    private var endDate = "2021-08-23"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -167,7 +169,7 @@ class ProductInfoActivity :
             //방 정보 리사이클러뷰 어댑터 장착
             binding.productInfoRecyclerView.layoutManager =
                 LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-            binding.productInfoRecyclerView.adapter = ProductInfoRoomRcAdapter(roomList)
+            binding.productInfoRecyclerView.adapter = ProductInfoRoomRcAdapter(roomList,startDate,endDate,brandID)
 
 
 
@@ -192,7 +194,6 @@ class ProductInfoActivity :
             binding.productInfoReviewCountLast.text=brandInfo[0].reviewCount.toString()
             binding.productInfoReviewAnswer.text="(${brandInfo[0].reviewCount})"
 
-            //var thumnailImg = brandInfo[0].thumnailImg.split(",")
 
 
             //thumnailList.add(thumnailImg[0])

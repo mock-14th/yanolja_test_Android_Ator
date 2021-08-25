@@ -34,13 +34,19 @@
         </activity>
         <activity android:name=".src.splash.SplashActivity"
             android:theme="@style/SplashActivity">
+
+        </activity>
+        <activity android:name=".src.roomInfo.RoomInfoActivity">
+        </activity>
+        <activity android:name=".src.booking.BookingActivity">
+        </activity>
+        <activity android:name=".src.payment.PaymentActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>
