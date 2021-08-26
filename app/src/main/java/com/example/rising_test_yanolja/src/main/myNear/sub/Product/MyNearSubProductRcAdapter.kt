@@ -62,7 +62,6 @@ class MyNearSubProductRcAdapter(private var productList : ArrayList<ResultMyNear
             } else
                 binding.itemMainMyNearProductTxOnedayPrice.text=formatter.format(data.oneDay.toInt())
 
-
         }
 
     }

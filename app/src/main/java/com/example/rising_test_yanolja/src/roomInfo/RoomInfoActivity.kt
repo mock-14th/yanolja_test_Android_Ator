@@ -28,6 +28,8 @@ class RoomInfoActivity : BaseActivity<ActivityRoomInfoBinding>(ActivityRoomInfoB
     var brandName = " "
     var halfDayPrice = " "
     var oneDayPrice =" "
+    var checkInText = ""
+    var checkOutText = ""
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -35,7 +37,9 @@ class RoomInfoActivity : BaseActivity<ActivityRoomInfoBinding>(ActivityRoomInfoB
         endDate = intent.getStringExtra("endDate").toString()
         brandID = intent.getIntExtra("brandID",0)
         roomType = intent.getStringExtra("roomType").toString()
-
+        checkInText = intent.getStringExtra("checkInText").toString()
+        checkOutText = intent.getStringExtra("checkOutText").toString()
+        println("startDate 값은? : $startDate")
         var handler = Handler(Looper.getMainLooper())
 
         Thread {
@@ -47,8 +51,10 @@ class RoomInfoActivity : BaseActivity<ActivityRoomInfoBinding>(ActivityRoomInfoB
 
 
 
-
-
+        var ccii = startDate.split("-")
+        var cciiToday = getDateDay("${ccii[0]}${ccii[1]}${ccii[2]}","yyyyMMdd")
+        binding.productInfoTxCheckIn.text= checkInText
+        binding.productInfoTxCheckOut.text=checkOutText
 
 
         //뷰페이저 현재 사진과 전체 사진 갯수 출력
@@ -140,7 +146,7 @@ class RoomInfoActivity : BaseActivity<ActivityRoomInfoBinding>(ActivityRoomInfoB
             binding.roomInfoCheckOutTime.text = "${result.checkOut} 부터"
 
             //이미지 ,기준으로 나눔
-            var imgList = result.roomImage.split(", ")
+            var imgList = result.roomImage.split(",")
             for(i in imgList.indices-(imgList.size-1)){
                 roomImgList.add(imgList[i])
             }

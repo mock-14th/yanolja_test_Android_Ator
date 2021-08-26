@@ -199,7 +199,7 @@
                     android:id="@+id/product_info_tx_check_in"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="8월 22일(일)"
+                    android:text="8월 27일(금)"
                     android:textColor="@color/look_all_btn_text_color"
                     android:textSize="15sp"
                     android:textStyle="bold"
@@ -258,7 +258,7 @@
                     android:id="@+id/product_info_tx_check_out"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="8월 23일(월)"
+                    android:text="8월 28일(월)"
                     android:textColor="@color/look_all_btn_text_color"
                     android:textSize="15sp"
                     android:textStyle="bold"
@@ -976,6 +976,7 @@
                         android:textSize="11sp" />
 
                     <ProgressBar
+                        android:id="@+id/progress_kind"
                         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                         android:layout_width="65dp"
                         android:layout_height="6dp"
@@ -1019,6 +1020,7 @@
                         android:textSize="11sp" />
 
                     <ProgressBar
+                        android:id="@+id/progress_clean"
                         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                         android:layout_width="65dp"
                         android:layout_height="6dp"
@@ -1062,6 +1064,7 @@
                         android:textSize="11sp" />
 
                     <ProgressBar
+                        android:id="@+id/progress_convenient"
                         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                         android:layout_width="65dp"
                         android:layout_height="6dp"
@@ -1105,6 +1108,7 @@
                         android:textSize="11sp" />
 
                     <ProgressBar
+                        android:id="@+id/progress_item_satisfaction"
                         style="@style/Widget.AppCompat.ProgressBar.Horizontal"
                         android:layout_width="65dp"
                         android:layout_height="6dp"

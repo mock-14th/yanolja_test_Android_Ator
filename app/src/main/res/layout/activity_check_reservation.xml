@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!--배경이 흰색일 때 보일 검정색 appbar-->
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/check_reservation_appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        app:elevation="0dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/booking_left_img"
+                    android:layout_width="10dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/left_black_img"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/booking_tx_toolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="35dp"
+                    android:text="국내여행 예약내역"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
+
+
+    <!--주소 정하는 버튼-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_my_near_btn_address"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="3dp"
+        android:background="@drawable/rectangle_round_stroke_gray"
+        android:gravity="center|center_vertical|left"
+        android:orientation="horizontal"
+        android:paddingStart="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/main_my_near_btn_day"
+        app:layout_constraintStart_toStartOf="@id/guidelineStart"
+        app:layout_constraintTop_toBottomOf="@+id/check_reservation_appBarLayout">
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="카테고리 전체"
+            android:textColor="@color/black"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <ImageView
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/triangle_down_black_img"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginEnd="10dp"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <!--날짜와 인원수 정하는 버튼-->
+    <LinearLayout
+        android:id="@+id/main_my_near_btn_day"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:background="@drawable/rectangle_round_stroke_gray"
+        android:gravity="center|center_vertical|left"
+        android:orientation="horizontal"
+        android:paddingStart="10dp"
+        android:paddingTop="8dp"
+        android:paddingBottom="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/guidelineEnd"
+        app:layout_constraintStart_toEndOf="@+id/main_my_near_btn_address"
+        app:layout_constraintTop_toBottomOf="@+id/check_reservation_appBarLayout">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="13dp"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/calendar_img" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:text="21.0.26~21.08.26"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/line1"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E8E8E8"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/main_my_near_btn_day"/>
+
+
+
+    <!--회색 바탕 주기 위한 레이아웃-->
+    <LinearLayout
+        android:id="@+id/gray"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="#F6F6F6"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/line1"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <!--그림자와 테두리 둥글게 해주기 위한 레이아웃-->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/reservation_rectangle_round_bg_gray_no_pressed"
+            android:elevation="2dp">
+
+        <!--상품 정보 레이아웃-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/product_info_constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_my_yanolja_linear_top_round_bg"
+            android:orientation="horizontal"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/check_reservation_booked_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2021.08.26(목)"
+                android:textColor="@color/black"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/reservation_btn_detail_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="상세보기"
+                android:textColor="@color/look_all_btn_text_color"
+                android:textSize="13sp"
+                android:layout_marginEnd="3dp"
+                app:layout_constraintEnd_toStartOf="@+id/reservation_btn_show_product_info"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageView
+                android:id="@+id/reservation_btn_show_product_info"
+                android:layout_width="6dp"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:src="@drawable/right_blue_img"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#E8E8E8"
+            app:layout_constraintTop_toBottomOf="@id/login_tabLayout"/>
+
+
+        <!--접혔다 필 상품 정보 레이아웃-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/payment_constraintLayout_show_product_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/main_my_yanolja_linear_bottom_round_bg"
+            android:paddingBottom="20dp"
+            android:paddingTop="15dp"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp">
+
+            <TextView
+                android:id="@+id/check_reservation_tx_bookedNum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="숙소 예약번호 2108260452630014"
+                android:textColor="@color/tabTextGray"
+                android:textSize="11sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/product_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/check_reservation_tx_bookedNum"
+                app:cardCornerRadius="3dp">
+
+                <ImageView
+                    android:id="@+id/check_reservation_img_thumnail"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/product_thumnail_img1"/>
+            </androidx.cardview.widget.CardView>
+
+
+            <TextView
+                android:id="@+id/complete_tx_brandName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="역삼 트리아"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_marginStart="7dp"
+                app:layout_constraintStart_toEndOf="@+id/product_img"
+                app:layout_constraintTop_toTopOf="@+id/product_img" />
+
+            <TextView
+                android:id="@+id/complete_tx_roomType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:text="STANDARD ROOM"
+                android:textColor="@color/black"
+                android:textSize="11sp"
+                android:layout_marginStart="7dp"
+                app:layout_constraintStart_toEndOf="@+id/product_img"
+                app:layout_constraintTop_toBottomOf="@+id/complete_tx_brandName" />
+
+
+            <TextView
+                android:id="@+id/complete_tx_period"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="2021.08.25 (수) ~ 2021.08.26 (목)"
+                android:textSize="11sp"
+                android:layout_marginStart="7dp"
+                app:layout_constraintStart_toEndOf="@+id/product_img"
+                app:layout_constraintTop_toBottomOf="@+id/complete_tx_roomType" />
+
+
+            <View
+                android:id="@+id/line14"
+                android:layout_width="1dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                android:background="#D8D8D8"
+                app:layout_constraintStart_toEndOf="@+id/complete_tx_period"
+                app:layout_constraintTop_toBottomOf="@+id/complete_tx_roomType" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="2dp"
+                android:text="1박"
+                android:textSize="11sp"
+                app:layout_constraintStart_toEndOf="@+id/line14"
+                app:layout_constraintTop_toBottomOf="@+id/complete_tx_roomType" />
+
+
+            <TextView
+                android:id="@+id/complete_tx_visit_wat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="도보"
+                android:textSize="11sp"
+                android:layout_marginStart="7dp"
+                app:layout_constraintStart_toEndOf="@+id/product_img"
+                app:layout_constraintTop_toBottomOf="@+id/complete_tx_period"/>
+            <TextView
+                android:id="@+id/complete_tx_check_in_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="체크인 17:00"
+                android:textSize="11sp"
+                android:layout_marginStart="7dp"
+                app:layout_constraintStart_toEndOf="@+id/product_img"
+                app:layout_constraintTop_toBottomOf="@+id/complete_tx_visit_wat" />
+
+
+            <View
+                android:id="@+id/line15"
+                android:layout_width="1dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="5dp"
+                android:background="#D8D8D8"
+                app:layout_constraintStart_toEndOf="@+id/complete_tx_check_in_time"
+                app:layout_constraintTop_toBottomOf="@+id/complete_tx_visit_wat" />
+
+            <TextView
+                android:id="@+id/complete_tx_check_out_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:text="체크아웃 13:00"
+                android:textSize="11sp"
+                android:layout_marginStart="8dp"
+                app:layout_constraintStart_toEndOf="@+id/line15"
+                app:layout_constraintTop_toBottomOf="@+id/complete_tx_visit_wat" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="예약내역은 최대 2년까지 조회할 수 있으며, 삭제하신 내역은 노출되지 않습니다."
+            android:textColor="#4A4A4A"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="30dp"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/ad"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:paddingBottom="60dp"
+            android:text="(주)야놀자는 통신판매중개업자로서, 통신판매의 당사자가 아니라는 사실을고지하며 상품의 결제, 이용 및 환불 등과 관련한 의무와 책임은 각 판매자에게 있습니다."
+            android:textSize="10sp"
+            android:textColor="#8A8A8A"/>
+
+    </LinearLayout>
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

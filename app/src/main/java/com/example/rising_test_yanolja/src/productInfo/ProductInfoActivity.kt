@@ -1,10 +1,11 @@
 package com.example.rising_test_yanolja.src.productInfo
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
-import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,7 +13,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.example.rising_test_yanolja.R
 import com.example.rising_test_yanolja.config.BaseActivity
 import com.example.rising_test_yanolja.databinding.ActivityProductInfoBinding
-import com.example.rising_test_yanolja.src.main.myNear.sub.Product.MyNearSubProductService
+import com.example.rising_test_yanolja.src.calendar.ChoiceDateActivity
 import com.example.rising_test_yanolja.src.productInfo.models.*
 
 
@@ -25,8 +26,10 @@ class ProductInfoActivity :
     private var playthingsList = ArrayList<PlayThingsInfo>()
     private var reviewList = ArrayList<Review>()
     private var brandID = 0
-    private var startDate = "2021-08-22"
-    private var endDate = "2021-08-23"
+    private var startDate = "2021-08-27"
+    private var endDate = "2021-08-28"
+    private var checkInText = "8월 27일(금)"
+    private var checkOutText = "8월 28일(토)"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -37,7 +40,7 @@ class ProductInfoActivity :
         Thread {
             handler.post {
                 showLoadingDialog(this)
-                ProductInfoService(this).tryGetProductInfo(brandID, "2021-08-23", "2021-08-24")
+                ProductInfoService(this).tryGetProductInfo(brandID, startDate, endDate)
             }
         }.start()
 
@@ -151,6 +154,15 @@ class ProductInfoActivity :
             }
         }
 
+
+
+
+        //체크인 클릭 리스너
+        binding.productInfoBtnCheckIn.setOnClickListener {
+            var intent = Intent(this,ChoiceDateActivity::class.java)
+            startActivityForResult(intent,101)
+        }
+
     }
 
 
@@ -165,11 +177,14 @@ class ProductInfoActivity :
                 reviewList.add(i)
 
 
+           // println(response.result.reviewList[0].nickname)
+
+
 
             //방 정보 리사이클러뷰 어댑터 장착
             binding.productInfoRecyclerView.layoutManager =
                 LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-            binding.productInfoRecyclerView.adapter = ProductInfoRoomRcAdapter(roomList,startDate,endDate,brandID)
+            binding.productInfoRecyclerView.adapter = ProductInfoRoomRcAdapter(roomList,startDate,endDate,brandID,checkInText,checkOutText)
 
 
 
@@ -181,7 +196,6 @@ class ProductInfoActivity :
 
 
             var brandInfo = response.result.brandInfo
-            var reviewList = response.result.reviewList
 
             binding.productInfoAppbarTxName.text=brandInfo[0].name
             binding.productInfoTxName.text=brandInfo[0].name
@@ -195,12 +209,27 @@ class ProductInfoActivity :
             binding.productInfoReviewAnswer.text="(${brandInfo[0].reviewCount})"
 
 
+            binding.productInfoTxRatingKind.text=brandInfo[0].kindRating
+            binding.progressKind.progress=brandInfo[0].kindRating.toInt()*100
 
-            //thumnailList.add(thumnailImg[0])
-            //임의로 사진 추가함
-            thumnailList.add("https://firebasestorage.googleapis.com/v0/b/fir-fcm-7df9c.appspot.com/o/images%2Fproduct_thumnail_img1.png?alt=media&token=0c34c305-e8dd-4793-b645-f98d4fd4b3ea")
-            thumnailList.add("https://firebasestorage.googleapis.com/v0/b/fir-fcm-7df9c.appspot.com/o/images%2Fproduct_thumnail_img2.png?alt=media&token=e0a5d62a-4bac-4ee9-9aab-f6b48f5ad117")
-            thumnailList.add("https://firebasestorage.googleapis.com/v0/b/fir-fcm-7df9c.appspot.com/o/images%2Fproduct_thumnail_img3.png?alt=media&token=05e931c3-9966-492b-952c-87089aacc83e")
+            binding.productInfoTxRatingClean.text=brandInfo[0].cleanRating
+            binding.progressClean.progress=brandInfo[0].cleanRating.toInt()*100
+
+            binding.productInfoTxRatingConvenient.text=brandInfo[0].easeRating
+            binding.progressConvenient.progress=brandInfo[0].easeRating.toInt()*100
+
+            binding.productInfoTxRatingItemSatisfaction.text=brandInfo[0].toolRating
+            binding.progressItemSatisfaction.progress=brandInfo[0].toolRating.toInt()*100
+
+
+
+            if(brandInfo[0].thumnailImg!=null){
+                var imgList = brandInfo[0].thumnailImg.split(",")
+                for(i in imgList)
+                    thumnailList.add(i)
+            }
+
+
 
             //대표사진 뷰페이저 어댑터 설정
             binding.productInfoViewPager2.adapter = ProductInfoThumnailViewPager2Adapter(thumnailList)
@@ -221,5 +250,38 @@ class ProductInfoActivity :
     //통신 실패
     override fun onGetProductInfoFailure(message: String) {
         showCustomToast("통신 실패")
+    }
+
+
+
+    /*
+   날짜 돌려 받기
+    */
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(101, resultCode, data)
+        if(resultCode== Activity.RESULT_OK){
+            val checkInDate = data!!.getStringExtra("checkInDate").toString()
+            val checkOutDate = data!!.getStringExtra("checkOutDate").toString()
+            var firstDate = data!!.getStringExtra("firstDate").toString()
+            var firstMonth = data!!.getStringExtra("firstMonth").toString()
+            var lastDate = data!!.getStringExtra("lastDate").toString()
+            var lastMonth = data!!.getStringExtra("lastMonth").toString()
+            var firstToday = data!!.getStringExtra("firstToday").toString()
+            var lastToday = data!!.getStringExtra("lastToday").toString()
+
+            startDate=checkInDate
+            endDate=checkOutDate
+
+
+            binding.productInfoTxCheckIn.text="${firstMonth}월 ${firstDate}일(${firstToday})"
+            binding.productInfoTxCheckOut.text="${lastMonth}월 ${lastDate}일(${lastToday})"
+            checkInText="${firstMonth}월 ${firstDate}일(${firstToday})"
+            checkOutText="${lastMonth}월 ${lastDate}일(${lastToday})"
+
+            //방 정보 리사이클러뷰 어댑터 장착
+            binding.productInfoRecyclerView.layoutManager =
+                LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+            binding.productInfoRecyclerView.adapter = ProductInfoRoomRcAdapter(roomList,startDate,endDate,brandID,checkInText,checkOutText)
+        }
     }
 }

@@ -13,7 +13,8 @@ import java.util.concurrent.TimeUnit
 
 // 앱이 실행될때 1번만 실행이 됩니다.
 class ApplicationClass : Application() {
-    val API_URL = "https://dev.lisugangs-ite.shop/"
+    //val API_URL = "https://dev.lisugangs-ite.shop/"
+    var API_URL = "https://prod.lisugangs-ite.shop/"
     val MAP_API_URL = "https://naveropenapi.apigw.ntruss.com/map-reversegeocode/v2/"
 
 

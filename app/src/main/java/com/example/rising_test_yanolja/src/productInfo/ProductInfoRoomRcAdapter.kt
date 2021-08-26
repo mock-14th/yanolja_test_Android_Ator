@@ -11,7 +11,8 @@ import com.example.rising_test_yanolja.src.productInfo.models.Room
 import com.example.rising_test_yanolja.src.roomInfo.RoomInfoActivity
 import java.text.DecimalFormat
 
-class ProductInfoRoomRcAdapter (private val roomList : ArrayList<Room>,private val startDate:String,private val endDate:String,private val brandID:Int)
+class ProductInfoRoomRcAdapter (private val roomList : ArrayList<Room>,private val startDate:String,private val endDate:String,private val brandID:Int,
+private var checkInText:String,private var checkOutText:String)
     : RecyclerView.Adapter<ProductInfoRoomRcAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductInfoRoomRcAdapter.ViewHolder {
         val binding =
@@ -54,11 +55,15 @@ class ProductInfoRoomRcAdapter (private val roomList : ArrayList<Room>,private v
 
 
             binding.root.setOnClickListener {
+                println("체크인 텍스트 : $checkInText")
+                println("체크아웃 텍스트 : $checkOutText")
                 var intent = Intent(binding.root.context,RoomInfoActivity::class.java)
                 intent.putExtra("startDate",startDate)
                 intent.putExtra("endDate",endDate)
                 intent.putExtra("roomType",data.roomType)
                 intent.putExtra("brandID",brandID)
+                intent.putExtra("checkInText",checkInText)
+                intent.putExtra("checkOutText",checkOutText)
                 binding.root.context.startActivity(intent)
             }
         }

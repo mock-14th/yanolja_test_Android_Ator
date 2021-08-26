@@ -165,8 +165,6 @@ class SignUpDialog : BottomSheetDialogFragment() {
 
 
 
-
-
         return binding.root
     }
 }

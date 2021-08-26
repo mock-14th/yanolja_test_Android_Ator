@@ -259,7 +259,7 @@ class AreaStationCapitalFragment : BaseFragment<FragmentAreaStationCapitalBindin
 
         //우측 리사이클러뷰에 어댑터 장착
         binding.mainAreaCapitalRightRecyclerView.layoutManager= LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        binding.mainAreaCapitalRightRecyclerView.adapter=AreaZonningRightRcAdapter(capitalLineNo2List)
+        binding.mainAreaCapitalRightRecyclerView.adapter=AreaZonningRightRcAdapter(capitalLineNo1List)
 
 
 

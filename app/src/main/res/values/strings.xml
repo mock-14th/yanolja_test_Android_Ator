@@ -84,4 +84,7 @@
     <!--.sign_up_2-->
     <string name="sign_up_2notice">인증번호는 <b>카카오 야놀자 알림 채널을 통해 발송</b>됩니다. 수신하지 못했다면 카카오 야놀자 알림 채널 차단 여부를 확인해주세요.</string>
 
+
+    <!--날짜 선택-->
+    <string name="ment">이 객실은 <b>1박</b> 예약만 가능합니다.</string>
 </resources>

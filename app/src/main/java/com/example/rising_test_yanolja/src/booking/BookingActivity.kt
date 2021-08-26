@@ -1,8 +1,10 @@
 package com.example.rising_test_yanolja.src.booking
 
+import android.content.Intent
 import android.os.Bundle
 import com.example.rising_test_yanolja.config.BaseActivity
 import com.example.rising_test_yanolja.databinding.ActivityBookingBinding
+import com.example.rising_test_yanolja.src.payment.PaymentActivity
 
 class BookingActivity : BaseActivity<ActivityBookingBinding>(ActivityBookingBinding::inflate){
     var startDate = " "
@@ -38,6 +40,23 @@ class BookingActivity : BaseActivity<ActivityBookingBinding>(ActivityBookingBind
         binding.bookingTxEndDay.text="${changeDate(endDate)} (${endDayOfWeek})"
         binding.bookingTxCheckOutTime.text = checkOut
         binding.bookingTxCost.text = "${oneDayPrice}원"
+
+
+
+        binding.bookingBtnRightNowBooking.setOnClickListener {
+            var intent = Intent(this,PaymentActivity::class.java)
+            intent.putExtra("brandName",brandName)
+            intent.putExtra("roomType",roomType)
+            intent.putExtra("startDate",startDate)
+            intent.putExtra("endDate",endDate)
+            intent.putExtra("startDayOfWeek",startDayOfWeek)
+            intent.putExtra("endDayOfWeek",endDayOfWeek)
+            intent.putExtra("oneDayPrice",oneDayPrice)
+            intent.putExtra("checkIn",checkIn)
+            intent.putExtra("checkOut",checkOut)
+            startActivity(intent)
+        }
+
     }
 
     fun changeDate(date:String) : String{

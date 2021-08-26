@@ -381,7 +381,7 @@
 
             <!--1-->
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/main_my_yanolja_btn_nonmember_1"
+                android:id="@+id/main_my_yanolja_btn_check_reservation"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -428,7 +428,7 @@
                 android:padding="1dp"
                 app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
                 app:layout_constraintStart_toStartOf="@id/guidelineStart"
-                app:layout_constraintTop_toBottomOf="@+id/main_my_yanolja_btn_nonmember_1">
+                app:layout_constraintTop_toBottomOf="@+id/main_my_yanolja_btn_check_reservation">
 
                 <!--2_1-->
                 <androidx.constraintlayout.widget.ConstraintLayout
