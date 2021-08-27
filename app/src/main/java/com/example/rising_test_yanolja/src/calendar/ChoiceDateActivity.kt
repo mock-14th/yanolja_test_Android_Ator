@@ -56,6 +56,8 @@ class ChoiceDateActivity :
                 firstMonth = "9"
             else if (firstDay.contains("Oct"))
                 firstMonth = "10"
+            else
+                firstMonth ="11"
 
             if (lastDay.contains("Aug"))
                 lastMonth = "8"
@@ -63,6 +65,8 @@ class ChoiceDateActivity :
                 lastMonth = "9"
             else if (lastDay.contains("Oct"))
                 lastMonth = "10"
+            else
+                lastMonth="11"
 
             if(firstDate>9){
                 firstLongDate = "20210${firstMonth}${firstDate}"

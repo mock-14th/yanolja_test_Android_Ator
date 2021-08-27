@@ -2,18 +2,24 @@ package com.example.rising_test_yanolja.src.productInfo
 
 import android.app.Activity
 import android.content.Intent
+import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.view.WindowManager
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.ColorUtils
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.viewpager2.widget.ViewPager2
 import com.example.rising_test_yanolja.R
+import com.example.rising_test_yanolja.config.ApplicationClass.Companion.sSharedPreferences
 import com.example.rising_test_yanolja.config.BaseActivity
+import com.example.rising_test_yanolja.config.BaseResponse
 import com.example.rising_test_yanolja.databinding.ActivityProductInfoBinding
 import com.example.rising_test_yanolja.src.calendar.ChoiceDateActivity
+import com.example.rising_test_yanolja.src.main.MainActivity
 import com.example.rising_test_yanolja.src.productInfo.models.*
 
 
@@ -30,12 +36,30 @@ class ProductInfoActivity :
     private var endDate = "2021-08-28"
     private var checkInText = "8월 27일(금)"
     private var checkOutText = "8월 28일(토)"
+    var like = ""
+    private lateinit var JWT : String
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
 
+        like = sSharedPreferences.getString("like","").toString()
+        JWT = sSharedPreferences.getString("X_ACCESS_TOKEN","").toString()
+
+
         brandID = intent.getIntExtra("brandID", 0)
         var handler = Handler(Looper.getMainLooper())
+
+
+        if(!like.isEmpty()){
+            if(brandID.toString() == like)
+                binding.productInfoBtnLike.setImageResource(R.drawable.heart_round_fill_img)
+        }
+
+        binding.productInfoBtnLike.setOnClickListener {
+            ProductInfoService(this).tryPostLikeProduct(JWT,brandID)
+        }
+
 
         Thread {
             handler.post {
@@ -156,6 +180,12 @@ class ProductInfoActivity :
 
 
 
+        //전화 클릭 리스너
+        binding.productInfoBtnCall.setOnClickListener {
+            ProductInfoService(this).tryGetBrandPhone(brandID)
+        }
+
+
 
         //체크인 클릭 리스너
         binding.productInfoBtnCheckIn.setOnClickListener {
@@ -163,13 +193,26 @@ class ProductInfoActivity :
             startActivityForResult(intent,101)
         }
 
+
+
     }
 
+    override fun onBackPressed() {
+        super.onBackPressed()
+        var intent=Intent(this,MainActivity::class.java)
+        intent.putExtra("currentViewPagerIndex",2)
+        startActivity(intent)
+    }
 
 
     //통신 성공
     override fun onGetProductInfoSuccess(response: ProductInfoResponse) {
         if (response.isSuccess) {
+            var handler = Handler(Looper.getMainLooper())
+
+            roomList.clear()
+            reviewList.clear()
+
             for (i in response.result.roomList)
                 roomList.add(i)
 
@@ -180,18 +223,23 @@ class ProductInfoActivity :
            // println(response.result.reviewList[0].nickname)
 
 
+            Thread {
+                handler.post {
+                    //방 정보 리사이클러뷰 어댑터 장착
+                    binding.productInfoRecyclerView.layoutManager =
+                        LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+                    binding.productInfoRecyclerView.adapter = ProductInfoRoomRcAdapter(roomList,startDate,endDate,brandID,checkInText,checkOutText)
 
-            //방 정보 리사이클러뷰 어댑터 장착
-            binding.productInfoRecyclerView.layoutManager =
-                LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-            binding.productInfoRecyclerView.adapter = ProductInfoRoomRcAdapter(roomList,startDate,endDate,brandID,checkInText,checkOutText)
 
 
+                    //리뷰 리사이클러뷰 어댑터 장착
+                    binding.productInfoRecyclerViewReview.layoutManager =
+                        LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+                    binding.productInfoRecyclerViewReview.adapter = ProductInfoReviewRcAdapter(reviewList)
+                }
+            }.start()
 
-            //리뷰 리사이클러뷰 어댑터 장착
-            binding.productInfoRecyclerViewReview.layoutManager =
-                LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-            binding.productInfoRecyclerViewReview.adapter = ProductInfoReviewRcAdapter(reviewList)
+
 
 
 
@@ -254,6 +302,30 @@ class ProductInfoActivity :
 
 
 
+    override fun onGetPhoneSuccess(response: BrandPhoneResponse) {
+        if(response.isSuccess){
+            var intent = Intent()
+            intent.setAction(Intent.ACTION_DIAL)
+            intent.setData(Uri.parse("tel:${response.result[0].phoneNum}"))
+            startActivity(intent)
+        }
+    }
+
+    override fun onGetPhoneFailure(message: String) {
+    }
+
+
+
+    override fun onPostLikeProductSuccess(response: BaseResponse) {
+        if (response.isSuccess)
+            binding.productInfoBtnLike.setImageResource(R.drawable.heart_round_fill_img)
+
+    }
+
+    override fun onPostLikeProdcutFailure(message: String) {
+    }
+
+
     /*
    날짜 돌려 받기
     */
@@ -278,10 +350,19 @@ class ProductInfoActivity :
             checkInText="${firstMonth}월 ${firstDate}일(${firstToday})"
             checkOutText="${lastMonth}월 ${lastDate}일(${lastToday})"
 
-            //방 정보 리사이클러뷰 어댑터 장착
-            binding.productInfoRecyclerView.layoutManager =
-                LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-            binding.productInfoRecyclerView.adapter = ProductInfoRoomRcAdapter(roomList,startDate,endDate,brandID,checkInText,checkOutText)
+            var handler = Handler(Looper.getMainLooper())
+
+            Thread {
+                handler.post {
+                    showLoadingDialog(this)
+                    ProductInfoService(this).tryGetProductInfo(brandID, startDate, endDate)
+                }
+            }.start()
+
+//            //방 정보 리사이클러뷰 어댑터 장착
+//            binding.productInfoRecyclerView.layoutManager =
+//                LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
+//            binding.productInfoRecyclerView.adapter = ProductInfoRoomRcAdapter(roomList,startDate,endDate,brandID,checkInText,checkOutText)
         }
     }
 }

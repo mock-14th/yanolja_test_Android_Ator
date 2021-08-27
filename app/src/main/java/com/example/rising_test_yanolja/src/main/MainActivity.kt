@@ -67,6 +67,9 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         네비게이션 버튼을 클릭하면 해당 fragment가 null인지 확인하고 null이면 add로 생성 아니면 show로 보여주고 나머지 fragment는 hide로 숨겨 데이터를 유지할 수 있도록 구현
          */
         binding.mainHomeBottomNav.setOnNavigationItemSelectedListener { item ->
+
+
+
             when (item.itemId) {
                 R.id.main_home_bottomNava_home -> {
                     binding.mainHomeBottomNav.menu.getItem(0).isChecked=true

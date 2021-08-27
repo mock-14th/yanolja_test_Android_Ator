@@ -146,7 +146,7 @@ class SignUpActivity2 : BaseActivity<ActivitySignUp2Binding>(ActivitySignUp2Bind
      //회원가입 완료 버튼 클릭 리스너
      binding.signUp2BtnSignUpComplete.setOnClickListener {
          if(email!=null && password != null){
-             var postRequest = PostSignUpRequest(email = email,nickname = "test2",phone = binding.signUp2EdtPhone.text.toString(),password = password)
+             var postRequest = PostSignUpRequest(email = email,nickname = "밝은복숭아4223",phone = binding.signUp2EdtPhone.text.toString(),password = password)
              SignUpService(this).tryPostSignUp(postRequest)
 
          }
@@ -159,23 +159,25 @@ class SignUpActivity2 : BaseActivity<ActivitySignUp2Binding>(ActivitySignUp2Bind
     회원가입 성공 시
      */
     override fun onPostSignUpSuccess(response: SignUpResponse) {
-        var editor = ApplicationClass.sSharedPreferences.edit()
         if(response.isSuccess){
+            var editor = ApplicationClass.sSharedPreferences.edit()
             var jwt = response.result.jwt
-            editor.putString(ApplicationClass.X_ACCESS_TOKEN,jwt)
+            println("jwt 값 넘어오?: ${response.result.jwt}")
+            editor.putString("X_ACCESS_TOKEN",jwt)
+            editor.commit()
+
+            //정보 수신 동의 처리 toast
+//            var toast = Toast(this)
+//            var toastView = View.inflate(this, R.layout.toast_complete_sign_up,null)
+//            var toastText = toastView.findViewById<TextView>(R.id.tvSample)
+//            toastText.text="[야놀자] 2021-08-27 광고성 정보 수신 동의 처리 되었습니다."
+//            toast.view=toastView
+//            toast.setGravity(Gravity.BOTTOM or Gravity.CENTER,0,50.toPx())
+//            toast.show()
+
 
             val intent = Intent(this, CompleteSignUpActivity::class.java)
             startActivity(intent)
-
-
-            //정보 수신 동의 처리 toast
-            var toast = Toast(this)
-            var toastView = View.inflate(this, R.layout.toast_complete_sign_up,null)
-            var toastText = toastView.findViewById<TextView>(R.id.tvSample)
-            toastText.text="[야놀자] 2021-08-19 광고성 정보 수신 동의 처리 되었습니다."
-            toast.view=toastView
-            toast.setGravity(Gravity.BOTTOM or Gravity.CENTER,0,50.toPx())
-            toast.show()
 
 
         }else

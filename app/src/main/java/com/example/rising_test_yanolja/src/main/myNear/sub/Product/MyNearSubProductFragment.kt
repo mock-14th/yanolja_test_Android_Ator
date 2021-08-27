@@ -11,8 +11,13 @@ import com.example.rising_test_yanolja.databinding.FragmentMyNearSubProductListB
 import com.example.rising_test_yanolja.src.main.home.recommend.HomeRecommendTodaySpecialCostRcViewAdapter
 import com.example.rising_test_yanolja.src.main.myNear.sub.Product.models.MyNearSubProductResponse
 import com.example.rising_test_yanolja.src.main.myNear.sub.Product.models.ResultMyNearProduct
+import com.example.rising_test_yanolja.src.productInfo.ProductInfoReviewRcAdapter
+import com.example.rising_test_yanolja.src.productInfo.ProductInfoRoomRcAdapter
 
-class MyNearSubProductFragment : BaseFragment<FragmentMyNearSubProductListBinding>(FragmentMyNearSubProductListBinding::bind, R.layout.fragment_my_near_sub_product_list),MyNearSubProductFragmentView {
+class MyNearSubProductFragment : BaseFragment<FragmentMyNearSubProductListBinding>(
+    FragmentMyNearSubProductListBinding::bind,
+    R.layout.fragment_my_near_sub_product_list
+), MyNearSubProductFragmentView {
 
     var productList = ArrayList<ResultMyNearProduct>()
 
@@ -26,8 +31,8 @@ class MyNearSubProductFragment : BaseFragment<FragmentMyNearSubProductListBindin
 
         var handler = Handler(Looper.getMainLooper())
 
-        Thread{
-            handler.post{
+        Thread {
+            handler.post {
                 showLoadingDialog(requireContext())
                 MyNearSubProductService(this).tryGetMotelsList()
             }
@@ -38,16 +43,24 @@ class MyNearSubProductFragment : BaseFragment<FragmentMyNearSubProductListBindin
 
     //통신 성공
     override fun onGetMotelsListSuccess(response: MyNearSubProductResponse) {
-        if (response.isSuccess){
-            for (i in response.result){
+        if (response.isSuccess) {
+            var handler = Handler(Looper.getMainLooper())
+
+            for (i in response.result) {
                 productList.add(i)
             }
-            //today_special_cost_rcView 어댑터 장착
-            binding.mainMyNearSubProductRcView.layoutManager =
-                LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-            binding.mainMyNearSubProductRcView.adapter = MyNearSubProductRcAdapter(productList)
+            Thread {
+                handler.post {
+                    //today_special_cost_rcView 어댑터 장착
+                    binding.mainMyNearSubProductRcView.layoutManager =
+                        LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+                    binding.mainMyNearSubProductRcView.adapter =
+                        MyNearSubProductRcAdapter(productList)
+                }
+            }.start()
+
+            dismissLoadingDialog()
         }
-        dismissLoadingDialog()
     }
 
     //통신 오류

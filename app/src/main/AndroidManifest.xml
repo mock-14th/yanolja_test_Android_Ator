@@ -55,5 +55,10 @@
         <activity android:name=".src.complete.CompleteActivity">
         </activity>
         <activity android:name=".src.main.myYanolja.checkReservation.CheckReservationActivity"/>
+        <activity android:name=".src.main.myYanolja.checkPassword.CheckPasswordMyInfoActivity"
+            android:theme="@style/PaymentActivity"/>
+        <activity android:name=".src.main.myYanolja.myInfo.MyInfoActivity"
+            android:theme="@style/PaymentActivity"/>
+        <activity android:name=".src.signUp.CompleteSignUpActivity"/>
     </application>
 </manifest>

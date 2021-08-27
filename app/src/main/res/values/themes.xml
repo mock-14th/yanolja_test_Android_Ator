@@ -28,6 +28,16 @@
 
 
 
+
+    <style name="EditTextTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="backgroundTint">@color/tabTextGray</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/tabTextGray</item>
+        <item name="background">@drawable/edt_bg_selector</item>
+
+    </style>
+
+
     <!--payment Activity의 editText handler를 위한 style테마 추가한다-->
     <style name="PaymentActivity" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
         <item name="colorPrimary">@color/look_all_btn_text_color</item>

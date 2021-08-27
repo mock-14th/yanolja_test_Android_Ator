@@ -11,6 +11,7 @@
     <!-- 기본 -->
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+    <color name="darkGray">#555555</color>
     <color name="lightGray">#E6E6E6</color>
     <color name="clickGray">#F3F3F3</color>
     <color name="whiteForBackground">#FFFFFF</color>
@@ -21,6 +22,7 @@
     <color name="statusTrans">#00ffffff</color>
     <color name="redBtnColor">#DA395F</color>
     <color name="redBtnColorClicked">#A1324D</color>
+    <color name="red">#DF0000</color>
 
     <color name="color_gray">#DDDDDD</color>
     <color name="tabTextGray">#A6A6A6</color>

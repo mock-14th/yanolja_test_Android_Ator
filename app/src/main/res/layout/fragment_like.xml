@@ -1,12 +1,170 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:gravity="center"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/main_area_appBarLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="찜"/>
+        android:layout_height="wrap_content"
+        app:elevation="0dp"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
+                android:text="지역"
+                android:textColor="@color/black"
+
+                android:textSize="17sp"
+                android:textStyle="bold"
+                app:layout_constraintBottom_toBottomOf="@+id/main_area_btn_search"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/main_area_btn_search"
+                android:layout_width="29dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="20dp"
+                android:adjustViewBounds="true"
+                android:background="@drawable/main_recommend_cart_background"
+                android:padding="5dp"
+
+                android:scaleType="centerCrop"
+                android:src="@drawable/cart_black_img"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.google.android.material.tabs.TabLayout
+                android:id="@+id/main_area_tabLayout"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                app:layout_constraintTop_toBottomOf="@+id/main_area_btn_search"
+
+                app:tabMaxWidth="0dp"
+                app:tabBackground="@color/white"
+                app:tabGravity="start"
+                app:tabIndicatorHeight="1dp"
+                app:tabMode="scrollable"
+                app:tabPaddingEnd="20dp"
+                app:tabPaddingStart="20dp"
+                app:tabRippleColor="@color/white"
+                app:tabSelectedTextColor="@color/black"
+                app:tabTextAppearance="@style/login_activity_tabLayout_text"
+                app:tabTextColor="@color/tabTextGray">
+
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="국내숙소" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="국내레저" />
+
+                <com.google.android.material.tabs.TabItem
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="해외숙소" />
+            </com.google.android.material.tabs.TabLayout>
+
+
+            <View
+                android:id="@+id/line1"
+                android:layout_width="match_parent"
+                android:layout_height="1.2dp"
+                android:layout_marginTop="5dp"
+                android:background="#E6E5E5"
+                app:layout_constraintTop_toBottomOf="@id/main_area_tabLayout" />
+
+            <!--주소 정하는 버튼-->
+            <LinearLayout
+                android:id="@+id/main_my_near_btn_address"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/rectangle_round_stroke_gray"
+                android:gravity="center|center_vertical|left"
+                android:paddingStart="10dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_marginEnd="3dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line1"
+                app:layout_constraintEnd_toStartOf="@+id/main_my_near_btn_day">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="13dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/calendar_img"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="09.01~09.02, 1박"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="5dp"/>
+            </LinearLayout>
+
+
+            <!--날짜와 인원수 정하는 버튼-->
+            <LinearLayout
+                android:id="@+id/main_my_near_btn_day"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/rectangle_round_stroke_gray"
+                android:gravity="center|center_vertical|left"
+                android:paddingStart="10dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="8dp"
+                android:layout_marginStart="3dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/main_my_near_btn_address"
+                app:layout_constraintTop_toBottomOf="@+id/line1">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="13dp"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:src="@drawable/person_img"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="성인 2, 아동 0"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="5dp"/>
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:id="@+id/main_like_frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:paddingTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/main_area_appBarLayout"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

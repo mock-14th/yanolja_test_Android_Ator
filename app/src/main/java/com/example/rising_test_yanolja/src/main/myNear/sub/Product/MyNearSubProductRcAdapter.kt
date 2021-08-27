@@ -12,6 +12,7 @@ import com.example.rising_test_yanolja.R
 import com.example.rising_test_yanolja.databinding.ItemMyNearProductRcviewBinding
 import com.example.rising_test_yanolja.src.main.myNear.sub.Product.models.ResultMyNearProduct
 import com.example.rising_test_yanolja.src.productInfo.ProductInfoActivity
+import com.squareup.picasso.Picasso
 import java.text.DecimalFormat
 
 class MyNearSubProductRcAdapter(private var productList : ArrayList<ResultMyNearProduct>) : RecyclerView.Adapter<MyNearSubProductRcAdapter.ViewHolder>(){
@@ -39,7 +40,8 @@ class MyNearSubProductRcAdapter(private var productList : ArrayList<ResultMyNear
                 binding.root.context.startActivity(intent)
             }
 
-            Glide.with(binding.root).load(data.picture).into(binding.itemMainMyNearProductImg)
+            Picasso.get().load(data.picture).into(binding.itemMainMyNearProductImg)
+           // Glide.with(binding.root).load(data.picture).into(binding.itemMainMyNearProductImg)
             binding.itemMainMyNearProductName.text = data.name
             binding.itemMainMyNearProductTxRating.text=data.rating
             binding.itemMainMyNearProductImgRating.rating=data.rating.toFloat()

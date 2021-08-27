@@ -9,5 +9,5 @@ data class Review(
     @SerializedName("사용한 방의 옵션") val roomOption: String,
     @SerializedName("사용한방") val useRoom: String,
     @SerializedName("후기쓴날짜") val postscriptDate: String,
-    @SerializedName("후기 이미지") val postscriptImg: String
+    @SerializedName("후기이미지") val postscriptImg: String
 )

@@ -184,10 +184,7 @@ class PaymentActivity:BaseActivity<ActivityPaymentBinding>(ActivityPaymentBindin
     통신 성공
      */
     override fun onPostBookedInfoSuccess(response: PaymentResponse) {
-        println("뭘 받냐: ${response.isSuccess}")
         if(response.isSuccess){
-            showCustomToast(response.result[0].bookedNum.toString())
-
             var bookedNum :Int = response.result[0].bookedNum as Int
             var editor = sSharedPreferences.edit()
             editor.putInt("bookedNum",bookedNum)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,6 +9,7 @@
     <androidx.core.widget.NestedScrollView
         android:id="@+id/product_info_nestedScrollView"
         android:layout_width="match_parent"
+        app:layout_constraintTop_toTopOf="parent"
         android:layout_height="wrap_content">
 
         <!--본문 레이아웃-->
@@ -155,6 +156,7 @@
                     android:src="@drawable/phone_blue_img" />
 
                 <TextView
+                    android:id="@+id/product_info_btn_call"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="4dp"
@@ -1376,6 +1378,7 @@
                 app:layout_constraintEnd_toEndOf="@id/guidelineEnd" />
 
 
+
             <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guidelineStart"
                 android:layout_width="wrap_content"
@@ -1391,8 +1394,9 @@
                 app:layout_constraintGuide_end="20dp" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
-
     </androidx.core.widget.NestedScrollView>
+
+
 
 
     <!--배경이 투명일 때 보일 하얀색 appbar-->
@@ -1400,6 +1404,7 @@
         android:id="@+id/product_info_white_appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
         android:background="@android:color/transparent"
         app:elevation="0dp">
 
@@ -1455,6 +1460,7 @@
         android:layout_height="wrap_content"
         android:background="@android:color/transparent"
         android:visibility="invisible"
+        app:layout_constraintTop_toTopOf="parent"
         app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
@@ -1515,4 +1521,51 @@
     </com.google.android.material.appbar.AppBarLayout>
 
 
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <!--확인 버튼에 그림자를 주기 위함-->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:translationZ="1dp"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/product_info_btn_like"
+                android:layout_width="13dp"
+                android:layout_height="45dp"
+                android:adjustViewBounds="true"
+                android:src="@drawable/heart_round_img"
+                android:layout_weight="0.1"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:text="대실 예약마감" />
+
+            <TextView
+                android:id="@+id/room_info_btn_oneDay_bottom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="15dp"
+                android:layout_weight="0.9"
+                android:background="@drawable/login_btn_login_round_bg"
+                android:fontFamily="@font/dotumpro2"
+                android:gravity="center"
+                android:paddingTop="15dp"
+                android:paddingBottom="15dp"
+                android:text="객실 선택하기"
+                android:textColor="@color/white"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+    </com.google.android.material.bottomnavigation.BottomNavigationView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

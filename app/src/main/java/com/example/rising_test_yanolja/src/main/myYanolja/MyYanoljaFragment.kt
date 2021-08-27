@@ -9,6 +9,7 @@ import com.example.rising_test_yanolja.config.ApplicationClass.Companion.sShared
 import com.example.rising_test_yanolja.config.BaseFragment
 import com.example.rising_test_yanolja.databinding.FragmentMyYanoljaBinding
 import com.example.rising_test_yanolja.src.login.LoginActivity
+import com.example.rising_test_yanolja.src.main.myYanolja.checkPassword.CheckPasswordMyInfoActivity
 import com.example.rising_test_yanolja.src.main.myYanolja.checkReservation.CheckReservationActivity
 import com.example.rising_test_yanolja.src.main.myYanolja.models.MyYanoljaResponse
 import com.example.rising_test_yanolja.src.setting.SettingActivity
@@ -56,6 +57,16 @@ class MyYanoljaFragment : BaseFragment<FragmentMyYanoljaBinding>(FragmentMyYanol
         //국내 예약 확인 버튼 리스너
         binding.mainMyYanoljaBtnCheckReservation.setOnClickListener {
             var intent = Intent(requireContext(),CheckReservationActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        //내정보 관리 버튼 리스너
+        binding.mainMyYanoljaBtnMyInfoManage.setOnClickListener {
+            var editor = sSharedPreferences.edit()
+            editor.putString("nickName",binding.mainMyYanoljaTxNicknameHasJWT.text.toString())
+            editor.apply()
+            var intent = Intent(requireContext(),CheckPasswordMyInfoActivity::class.java)
             startActivity(intent)
         }
 

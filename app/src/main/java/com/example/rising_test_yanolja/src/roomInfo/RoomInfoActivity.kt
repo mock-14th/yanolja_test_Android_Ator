@@ -129,8 +129,13 @@ class RoomInfoActivity : BaseActivity<ActivityRoomInfoBinding>(ActivityRoomInfoB
             }else{
                 binding.roomInfoBtnHalfDayBottom.isEnabled=true
                binding.roomInfoBtnHalfDayBottom.text="대실 예약하기"
-               halfDayPrice=formatter.format(result.halfDayPrice.toInt())
-               binding.roomInfoTxHalfDayPrice.text=halfDayPrice
+               if(result.halfDayPrice!=null){
+                   halfDayPrice=formatter.format(result.halfDayPrice.toInt())
+                   binding.roomInfoTxHalfDayPrice.text=halfDayPrice
+               }else{
+                   binding.roomInfoTxHalfDayPrice.text="예약마감"
+               }
+
             }
             if(result.oneDayPrice=="예약마감"){
                 binding.roomInfoTxOneDayPrice.text="예약마감"

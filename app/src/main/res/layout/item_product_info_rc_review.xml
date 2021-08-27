@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:src="@drawable/good_img"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
 
@@ -113,7 +113,8 @@
         <ImageView
             android:id="@+id/item_product_info_rc_room_picture"
             android:layout_width="190dp"
-            android:layout_height="wrap_content"
+            android:layout_height="120dp"
+            android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:src="@drawable/product_thumnail_img1"/>
     </androidx.cardview.widget.CardView>

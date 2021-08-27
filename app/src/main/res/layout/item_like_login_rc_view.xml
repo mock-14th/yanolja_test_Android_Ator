@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/button_clicked_bg"
+    android:paddingStart="10dp"
+    android:paddingEnd="10dp"
+    android:paddingTop="10dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/item_product_info_rc_cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:cardCornerRadius="5dp">
+
+        <ImageView
+            android:id="@+id/item_product_info_rc_img"
+            android:layout_width="130dp"
+            android:layout_height="155dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/product_rc_img" />
+    </androidx.cardview.widget.CardView>
+
+
+    <TextView
+        android:id="@+id/item_like_tx_room_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="일산(중산) BOX"
+        android:textColor="@color/black"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:layout_marginStart="10dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/item_product_info_rc_cardView"/>
+
+
+
+    <androidx.appcompat.widget.AppCompatRatingBar
+        android:id="@+id/item_like_login_review_img_rating"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:isIndicator="false"
+        android:numStars="5"
+        android:rating="2.5"
+        android:stepSize="0.1"
+        app:layout_constraintStart_toEndOf="@+id/item_product_info_rc_cardView"
+        app:layout_constraintTop_toBottomOf="@+id/item_like_tx_room_name" />
+
+
+    <TextView
+        android:id="@+id/item_like_tx_rating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="3dp"
+        android:text="4.3"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/item_like_login_review_img_rating"
+        app:layout_constraintTop_toBottomOf="@+id/item_like_tx_room_name" />
+
+    <TextView
+        android:id="@+id/item_like_tx_review_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="3dp"
+        android:text="(4,428)"
+        android:textColor="@color/black"
+        android:textSize="11sp"
+        app:layout_constraintStart_toEndOf="@+id/item_like_tx_rating"
+        app:layout_constraintTop_toBottomOf="@+id/item_like_tx_room_name" />
+
+    <TextView
+        android:id="@+id/item_product_info_rc_tx_wal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="모텔 &#183; 최저가보상"
+        android:textColor="@color/darkGray"
+        android:textSize="11sp"
+        android:layout_marginStart="10dp"
+
+        app:layout_constraintStart_toEndOf="@+id/item_product_info_rc_cardView"
+        app:layout_constraintTop_toBottomOf="@+id/item_like_login_review_img_rating"/>
+
+
+
+
+    <!--대실 가격 정보 레이아웃-->
+    <LinearLayout
+        android:id="@+id/item_like_halfday_linear"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right|center_vertical"
+        android:paddingTop="15dp"
+        android:paddingBottom="2dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/item_main_my_near_product_linear_oneday"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="대실"
+            android:textColor="@color/black"
+            android:textSize="11sp"/>
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="1dp"
+            android:layout_height="7dp"
+            android:layout_marginEnd="5dp"
+            android:background="#B6B6B6" />
+
+
+        <TextView
+            android:id="@+id/item_main_my_near_product_tx_halfday_from_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="4시간"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+
+        <TextView
+            android:id="@+id/item_like_tx_halfday_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:text="30,000"
+            android:textColor="@color/black"
+            android:textSize="16.5sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/item_like_tx_halfday_won"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="원"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+
+
+
+
+
+    <!--숙박 가격 정보 레이아웃-->
+    <LinearLayout
+        android:id="@+id/item_main_my_near_product_linear_oneday"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="right|center_vertical"
+        android:paddingTop="2dp"
+        android:paddingEnd="10dp"
+        android:paddingStart="10dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/item_product_info_rc_cardView"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="숙박"
+            android:textColor="@color/black"
+            android:textSize="11sp"/>
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="1dp"
+            android:layout_height="7dp"
+            android:layout_marginEnd="5dp"
+            android:background="#B6B6B6" />
+
+
+        <TextView
+            android:id="@+id/item_main_my_near_product_tx_oneday_from_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:text="21:00부터"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+
+
+        <TextView
+            android:id="@+id/item_like_tx_oneday_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="2dp"
+            android:text="70,000"
+            android:textColor="@color/black"
+            android:textSize="16.5sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/item_like_tx_won_oneday"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:text="원"
+            android:textColor="@color/black"
+            android:textSize="11sp" />
+    </LinearLayout>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/notice"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/like_linear_rectangle_gray_round_bg"
+        android:layout_marginTop="15dp"
+        android:paddingBottom="15dp"
+        android:paddingTop="15dp"
+        android:paddingStart="10dp"
+        android:paddingEnd="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/item_product_info_rc_cardView">
+
+        <TextView
+            android:id="@+id/tx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/like_notice_linear_rectangle_bg"
+            android:text="공지"
+            android:textSize="10sp"
+            android:paddingStart="15dp"
+            android:paddingEnd="15dp"
+            android:paddingTop="1dp"
+            android:paddingBottom="1dp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="전기차 충전기 설치완료.\n입실전 사전주차가능(문의)"
+            android:textSize="10sp"
+            android:textColor="@color/darkGray"
+            android:layout_marginStart="7dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tx"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    <View
+        android:id="@+id/line4"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#E6E5E5"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@id/notice"/>
+
+
+
+
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineStart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="20dp" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineEnd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_end="20dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
